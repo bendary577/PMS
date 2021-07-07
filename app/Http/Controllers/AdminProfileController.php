@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminProfile;
+use App\Models\ReceptionistProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -22,9 +23,42 @@ class AdminProfileController extends Controller
         //
     }
 
-    public function hamada()
+    public function editReceptionist($id)
     {
-      echo 'hamada';
+        $receptionist = ReceptionistProfile::find($id);
+        return view('admin.dashboard.dashboard_update_receptionist', [ 'receptionist_id' => $receptionist->id, 'receptionist_name' =>$receptionist->user->name]);
+    }
+
+    public function updateReceptionist(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(),
+        [
+            'shift_start' => 'nullable',
+            'shift_end' => 'nullable',
+        ]);
+
+        if ($validator->fails()){
+            return  redirect()->back()->withErrors('error', $validator->errors()->all());   
+        }
+
+        $receptionist = ReceptionistProfile::find($id);
+
+        if($request['shift_start']){
+            $receptionist->shift_start = $request['shift_start'];
+        }
+
+        if($request['shift_end']){
+            $receptionist->shift_end = $request['shift_end'];
+        }
+
+        if($request['about']){
+            $receptionist->about = $request['about'];
+        }
+
+        $receptionist->save();
+
+        session()->flash('success', 'receptionist profile was updated succesfuly');
+        return redirect()->back();  
     }
 
 

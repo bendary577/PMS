@@ -45,6 +45,7 @@
                 Female
             </label>
         </div>
+        <div class="my-2"><h4>Please Add Patient Card</h4></div>
         <div class="my-2">
             <input type="file" name="image" accept="image/*"  >
         </div>

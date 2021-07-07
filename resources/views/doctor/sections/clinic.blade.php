@@ -21,6 +21,7 @@
     @else
     <p class="mt-2">no medical speciality chosen yet</p>
     @endif
+    <p<p class="mt-2">{{ Auth::user()->profile->clinic->department}} department</p>
     </div>
     <div class="row">
             <h3>Working Hours</h3>
@@ -42,13 +43,15 @@
             </table>
     </div>
     <div class="">
-            <h3>Patients List</h3>
+            <h3>Patients Appointments List</h3>
             @if(count($clinic->appointments)>0)
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Mobile</th>
+                        <th scope="col">date</th>
+                        <th scope="col">hour</th>
+                        <th scope="col">Appointment Reason</th>
                         <th scope="col">diagnoses</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -57,7 +60,9 @@
                 @foreach($clinic->appointments as $appointment)
                     <tr>
                         <th scope="row">{{ $appointment->patient->name }}</th>
-                        <td>{{ $appointment->patient->phone }}</td>
+                        <td>{{ $appointment->date }}</td>
+                        <td>{{ $appointment->from }}</td>
+                        <td>{{ $appointment->reason}}</td>
                         @if(isset($appointment->patient->diagnoses))
                         <td>{{ $appointment->patient->diagnoses }}</td>
                         @else

@@ -82,9 +82,9 @@ Route::middleware('auth')->group(function () {
 
                 Route::get('/', [App\Http\Controllers\ReceptionistProfileController::class, 'index'])->name('admin.receptionists');
 
-                Route::get('/edit/{id}', [App\Http\Controllers\ReceptionistProfileController::class, 'edit'])->name('admin.edit.receptionist');
+                Route::get('/edit/{id}', [App\Http\Controllers\AdminProfileController::class, 'editReceptionist'])->name('admin.edit.receptionist');
 
-                Route::post('/update/{id}', [App\Http\Controllers\ReceptionistProfileController::class, 'update'])->name('admin.update.receptionist');
+                Route::post('/update/{id}', [App\Http\Controllers\AdminProfileController::class, 'updateReceptionist'])->name('admin.update.receptionist');
 
                 Route::get('/delete/{id}', [App\Http\Controllers\ReceptionistProfileController::class, 'destroy'])->name('admin.delete.receptionist');
             

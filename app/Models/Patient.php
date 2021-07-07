@@ -27,10 +27,6 @@ class Patient extends Model
         return $this->hasMany(Appointment::class);
     }
 
-    public function medicines()
-    {
-        return $this->belongsToMany(Medicine::class, 'medicine_patient');
-    }
 
     public function generateCode(){
         return rand(pow(10, 8-1), pow(10, 8)-1);

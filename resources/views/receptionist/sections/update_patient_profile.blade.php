@@ -46,6 +46,7 @@
                 Female
             </label>
         </div>
+        <div class="my-2"><h4>Update Patient Card</h4></div>
         <div class="my-2">
             <input type="file" name="image" accept="image/*"  >
         </div>

@@ -13,9 +13,10 @@
         </ul>
     @endif
 
-    <div class=""><h2>Update Receptionist Profile Working Shifts</h2></div>
-    @if($id)
-    <form method="POST" action="{{route('admin.update.receptionist', ['id' => $id ])}}">
+
+    @if($receptionist_id && $receptionist_name)
+    <div class=""><h2>Update {{ $receptionist_name }} Profile Working Shifts</h2></div>
+    <form method="POST" action="{{route('admin.update.receptionist', ['id' => $receptionist_id ])}}">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="shift_start">Shift Starts at : </label>

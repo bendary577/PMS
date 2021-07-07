@@ -96,24 +96,28 @@
         </div>
         <div class="row">
             <div class="title my-4"><h3>Follow Up Dates</h3></div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Follow Up Dates</th>
-                        <th scope="col">Mobile</th>
-                        <th scope="col">Specialization</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><button class="btn btn-success">check schedule</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            @if(count($patient->appointments) > 0)
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">follow up date</th>
+                            <th scope="col">from</th>
+                            <th scope="col">to</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($patient->appointments as $appointment)
+                            <tr>
+                                <th scope="row">{{ $appointment->date }}</th>
+                                <th scope="row">{{ $appointment->from }}</th>
+                                <th scope="row">{{ $appointment->to }}</th>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                <h4 class="text-success">patient has no midicine doses available</h4>
+            @endif
         </div>
     @else
         <h3 class="text-danger">sorry, patient is not available</h3>

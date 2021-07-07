@@ -13,8 +13,8 @@ class Medicine extends Model
         'name'
     ];
 
-    public function patients()
+    public function medicines()
     {
-        return $this->belongsToMany(Patient::class, 'medicine_patient');
+        return $this->belongsToMany(DiagnoseDescription::class, 'medicine_diagnoses_description');
     }
 }

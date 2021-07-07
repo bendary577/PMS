@@ -35,7 +35,7 @@ class ReceptionistProfileController extends Controller
     }
 
 
-    public function edit()
+    public function edit($id)
     {
         return view('profile.dashboard.dashboard_receptionist_edit_profile');
     }

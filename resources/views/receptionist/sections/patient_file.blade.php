@@ -12,7 +12,7 @@
                     <div class="card-header">
                         <div class="clearfix">
                             <h5 class="card-title float-left">Personal Info</h5>
-                            <a href="{{route('receptionist.edit.patient')}}" class="text-primary float-right">edit profile</a>
+                            <a href="{{route('receptionist.edit.patient', ['id' => $patient->id ])}}" class="text-primary float-right">edit profile</a>
                         </div>
                     </div>
                     <div class="card-body">
