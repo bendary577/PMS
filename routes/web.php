@@ -139,6 +139,8 @@ Route::middleware('auth')->group(function () {
 
                 Route::get('/delete', [App\Http\Controllers\ClinicController::class, 'destroy'])->name('doctor.delete.clinic_hours');
 
+                Route::post('/store_diagnose', [App\Http\Controllers\DiagnoseController::class, 'store'])->name('doctor.add.diagnose');
+
                 Route::prefix('/patients')->group(function () {
 
                     //get doctor's clinic patients

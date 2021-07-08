@@ -4,82 +4,104 @@ namespace App\Http\Controllers;
 
 use App\Models\Diagnose;
 use Illuminate\Http\Request;
+use App\Models\MedicalSpeciality;
+use Illuminate\Support\Facades\Validator;
 
 class DiagnoseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        /*
+        $diagnoses = Diagnose::paginate(10);
+        return view('admin.dashboard.dashboard_medical_specialities', ['medicalSpecialities' => $medicalSpecialities]);
+        */
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        //return view('admin.dashboard.dashboard_add_medical_speciality');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),
+        [
+            'name' => 'required|string|max:200',
+            'specialization' => 'required'
+        ]);
+
+        if ($validator->fails()){
+            return  redirect()->back()->withErrors('error', $validator->errors()->all());   
+        }
+
+        $diagnose = new Diagnose();
+        $diagnose->name = $request['name'];
+
+        $medical_speciality = MedicalSpeciality::find(intval($request['specialization']));
+        $diagnose->medicalSpeciality()->associate($medical_speciality)->save();
+
+        $diagnose->save();
+
+        session()->flash('success', 'diagnose added succesfuly');
+        return redirect()->back();   
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Diagnose  $diagnose
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Diagnose $diagnose)
+
+    public function show(MedicalSpeciality $medicalSpeciality)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Diagnose  $diagnose
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Diagnose $diagnose)
+
+    public function edit($id)
     {
-        //
+        /*
+        $medicalSpeciality = medicalSpeciality::find($id);
+        return view('admin.dashboard.dashboard_update_medical_speciality', ['medicalSpeciality' => $medicalSpeciality]);
+        */
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Diagnose  $diagnose
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Diagnose $diagnose)
+
+    public function update(Request $request, $id)
     {
-        //
+        /*
+        $validator = Validator::make($request->all(),
+        [
+            'name' => 'required|string|max:200',
+        ]);
+
+        if ($validator->fails()){
+            return  redirect()->back()->withErrors('error', $validator->errors()->all());   
+        }
+
+        $medicalSpeciality = medicalSpeciality::find($id);
+
+        if($request['name']){
+            $medicalSpeciality->name = $request['name'];
+        }
+
+        $medicalSpeciality->save();
+
+        session()->flash('success', 'medical speciality profile updated succesfuly');
+        return redirect()->back(); 
+        */
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Diagnose  $diagnose
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Diagnose $diagnose)
+
+    public function destroy($id)
     {
-        //
+        /*
+        if(MedicalSpeciality::where('id', $id)->exists()) {
+            $medicalSpeciality = MedicalSpeciality::find($id);
+            $medicalSpeciality->delete();
+            session()->flash('success', 'medical speciality deleted succesfuly');
+            return redirect()->back(); 
+        }else{
+            session()->flash('error', 'medical speciality receptionist profile');
+            return redirect()->back(); 
+        }
+        */
     }
 }

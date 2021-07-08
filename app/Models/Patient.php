@@ -32,4 +32,9 @@ class Patient extends Model
         return rand(pow(10, 8-1), pow(10, 8)-1);
     }
 
+    public function diagnosesDescriptions()
+    {
+        return $this->hasMany(DiagnoseDescription::class);
+    }
+
 }

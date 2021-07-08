@@ -16,7 +16,7 @@ class CreateDiagnosesTable extends Migration
         Schema::create('diagnoses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('medical_speciality_id')->nullable();
-            $table->name();
+            $table->string('name');
             $table->foreign('medical_speciality_id')->references('id')->on('medical_specialities')->onDelete('cascade');
             $table->timestamps();
         });

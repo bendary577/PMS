@@ -20,7 +20,7 @@ class CreateDiagnoseDescriptionsTable extends Migration
             $table->text('content');
             $table->string('treatment_protocol');
             $table->foreign('diagnoses_id')->references('id')->on('diagnoses')->onDelete('cascade');
-            $table->foreign('patinets_id')->references('id')->on('patinets')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -80,26 +80,26 @@
             </div>
         </div>
         <div class="row">
-            @if(count($patient->medicines) > 0)
-                <div class="title my-4"><h3>Medicines</h3></div>
+            @if(count($patient->diagnosesDescriptions) > 0)
+                <div class="title my-4"><h3>Diagnoses</h3></div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Medicine Name</th>
+                            <th scope="col">Diagnose Name</th>
                             <th scope="col">dose</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($patient->medicines as $medicine)
+                        @foreach($patient->diagnosesDescriptions as $diagnose_description)
                             <tr>
-                                <th scope="row">{{ $medicine->name }}</th>
-                                <td>3 rivets</td>
+                                <th scope="row">$diagnose_description->diagnose->name</th>
+                                <td>$diagnose_description->medicines->pivot->dose</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             @else
-                <h4 class="text-success">patient has no midicine doses available</h4>
+                <h4 class="text-success">patient has no diagnoses available</h4>
             @endif
         </div>
         <div class="row">

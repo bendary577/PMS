@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use App\Models\Medicine;
+use App\Models\MedicalSpeciality;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -181,8 +182,9 @@ class PatientController extends Controller
 
     public function getPatientFileHistory($id){
         if(Patient::where('id', $id)->exists()) {
+            $medical_specialities = MedicalSpeciality::all();
             $patient = Patient::find($id);
-            return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient]);
+            return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'medical_specialities' => $medical_specialities]);
         }else{
             session()->flash('error', 'patient profile doesn\'t exist');
             return redirect()->back(); 

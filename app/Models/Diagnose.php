@@ -9,6 +9,8 @@ class Diagnose extends Model
 {
     use HasFactory;
 
+    protected $table = 'diagnoses';
+    
     protected $fillable = [
         'name'
     ];
@@ -21,11 +23,6 @@ class Diagnose extends Model
     public function diagnosesDescription()
     {
         return $this->hasOne(DiagnoseDescription::class);
-    }
-
-    public function medicines()
-    {
-        return $this->hasMany(Medicine::class);
     }
 
 }
