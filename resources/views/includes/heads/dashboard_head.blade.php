@@ -5,6 +5,17 @@
 <title>Patient Management System</title>
 
 <!-- Scripts -->
+
+
+@if(Auth::user()->getHasDoctorProfileAttribute())
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+<!---
+<script src="{{ asset('js/doctor_add_diagnose.js') }}" defer></script>
+-->
+@endif
+
+
 <script src="{{ asset('js/app.js') }}" defer></script>
    
 <script src="{{ asset('js/dashboard.js') }}" defer></script>
@@ -19,3 +30,4 @@
 <link href="{{ asset('css/main.css') }}" rel="stylesheet"> 
 
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet"> 
+

@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="go_back mb-4"><a href="{{ url()->previous() }}"><h6 class="text-primary">< go back</h6></a></div>
-    @if($patient)
+    @if($patient || $medical_specialities)
         <div class="title my-4">
             <h2>{{ $patient->name }} File</h2>
             <a href="" class="btn btn-primary">print pdf</a>
@@ -91,10 +91,28 @@
                     </tbody>
                 </table>
             @else
-            <div class="d-flex">
-                <h4 class="text-success">patient has no diagnoses available</h4>
-                <a href="" class="ml-2">add new diagnose</a>
+            <div class="d-flex col-md-12">
+                <div>
+                    <h4 class="text-success">patient has no diagnoses available</h4>
+                </div>
+                <div>
+                    <a href="javascript:void(0);" id="add_diagnose" class="ml-2 btn btn-success">add new diagnose</a>
+                </div>
             </div>
+            <div id="add_diagnose_div" class="col-md-12">
+                
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $('#add_diagnose').click(function() {
+                        let div = document.getElementById("add_diagnose_div");
+                        let structure = `<form method="POST" action="{{route('doctor.add.diagnose'}}"></form>`
+                        if(div.childElementCount === 0){
+                            $('#add_diagnose_div').append(structure); 
+                        }
+                    });
+                });
+            </script>
             @endif
         </div>
         <div class="row">
@@ -126,3 +144,4 @@
         <h3 class="text-danger">sorry, patient is not available</h3>
     @endif
 </div>
+

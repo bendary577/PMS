@@ -184,7 +184,8 @@ class PatientController extends Controller
         if(Patient::where('id', $id)->exists()) {
             $medical_specialities = MedicalSpeciality::all();
             $patient = Patient::find($id);
-            return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'medical_specialities' => $medical_specialities]);
+            //$add_diagnose_form = json_encode(view('doctor.sections.add_diagnose')->render());
+        return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'medical_specialities' => $medical_specialities, /*'add_diagnose_form' => $add_diagnose_form*/ ]);
         }else{
             session()->flash('error', 'patient profile doesn\'t exist');
             return redirect()->back(); 
