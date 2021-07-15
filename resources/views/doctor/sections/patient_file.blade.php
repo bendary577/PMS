@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="go_back mb-4"><a href="{{ url()->previous() }}"><h6 class="text-primary">< go back</h6></a></div>
-    @if($patient || $medical_specialities)
+    @if($patient)
         <div class="title my-4">
             <h2>{{ $patient->name }} File</h2>
             <a href="" class="btn btn-primary">print pdf</a>
@@ -100,22 +100,34 @@
                 </div>
             </div>
             <div id="add_diagnose_div" class="col-md-12">
-                
+                    <!--- if diagnose is added successfully ----------->
+                    @if (Session::has('success'))
+                        <div class="alert alert-success my-2">{{ Session::get('success') }}</div>
+                    @endif
+
+                    <!--- if diagnose is not added successfully ----------->
+                    @if($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
             </div>
             <script>
                 $(document).ready(function(){
                     $('#add_diagnose').click(function() {
                         let div = document.getElementById("add_diagnose_div");
-                        let structure = `<form method="POST" action="{{route('doctor.add.diagnose'}}"></form>`
+                        let add_diagnose_form = {!! json_encode($add_diagnose_form, JSON_HEX_TAG) !!};
                         if(div.childElementCount === 0){
-                            $('#add_diagnose_div').append(structure); 
+                            $('#add_diagnose_div').append(add_diagnose_form); 
                         }
                     });
                 });
             </script>
             @endif
         </div>
-        <div class="row">
+        <div class="row"> 
             <div class="title my-4"><h3>Follow Up Dates</h3></div>
             @if(count($patient->appointments) > 0)
                 <table class="table table-hover">

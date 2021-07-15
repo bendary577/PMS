@@ -184,8 +184,9 @@ class PatientController extends Controller
         if(Patient::where('id', $id)->exists()) {
             $medical_specialities = MedicalSpeciality::all();
             $patient = Patient::find($id);
-            //$add_diagnose_form = json_encode(view('doctor.sections.add_diagnose')->render());
-        return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'medical_specialities' => $medical_specialities, /*'add_diagnose_form' => $add_diagnose_form*/ ]);
+            $add_diagnose_form = view('doctor.sections.add_diagnose')->with('medical_specialities', $medical_specialities)->render();
+            //var_dump($add_diagnose_form);
+            return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'medical_specialities' => $medical_specialities, 'add_diagnose_form' => $add_diagnose_form ]);
         }else{
             session()->flash('error', 'patient profile doesn\'t exist');
             return redirect()->back(); 
@@ -199,7 +200,8 @@ class PatientController extends Controller
     }
 
       // Generate PDF
-      public function createPDFFile($id) {
+    public function createPDFFile($id)
+    {
         // retreive all records from db
         $data = Patient::find($id);
   
@@ -209,6 +211,6 @@ class PatientController extends Controller
   
         // download PDF file with download method
         //return $pdf->download('pdf_file.pdf');
-      }
+    }
     
 }
