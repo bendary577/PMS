@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnose;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Models\MedicalSpeciality;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +25,7 @@ class DiagnoseController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, $patient_id)
     {
         $validator = Validator::make($request->all(),
         [
@@ -36,16 +37,23 @@ class DiagnoseController extends Controller
             return  redirect()->back()->withErrors('error', $validator->errors()->all());   
         }
 
+        $patient = Patient::find($patient_id);
+
         $diagnose = new Diagnose();
         $diagnose->name = $request['name'];
+        $description = $request['description'];
+        $protocol = $request['protocol'];
 
         $medical_speciality = MedicalSpeciality::find(intval($request['specialization']));
         $diagnose->medicalSpeciality()->associate($medical_speciality)->save();
 
         $diagnose->save();
 
+        $patient->diagnoses()->attach($diagnose, ['description' => $description, 'treatment_protocol' => $protocol]);
+
         session()->flash('success', 'diagnose added succesfuly');
         return redirect()->back();   
+        
     }
 
 

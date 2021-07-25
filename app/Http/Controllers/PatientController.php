@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use App\Models\Medicine;
+use App\Models\Diagnose;
 use App\Models\MedicalSpeciality;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -183,10 +184,11 @@ class PatientController extends Controller
     public function getPatientFileHistory($id){
         if(Patient::where('id', $id)->exists()) {
             $medical_specialities = MedicalSpeciality::all();
+            $diagnoses = Diagnose::all();
+            var_dump(count($diagnoses));
             $patient = Patient::find($id);
-            $add_diagnose_form = view('doctor.sections.add_diagnose')->with('medical_specialities', $medical_specialities)->render();
-            //var_dump($add_diagnose_form);
-            return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'medical_specialities' => $medical_specialities, 'add_diagnose_form' => $add_diagnose_form ]);
+            $add_diagnose_form = view('doctor.sections.add_diagnose', ['medical_specialities' => $medical_specialities, 'patient' => $patient])->render();
+            return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'diagnoses' => $diagnoses, 'medical_specialities' => $medical_specialities, 'add_diagnose_form' => $add_diagnose_form ]);
         }else{
             session()->flash('error', 'patient profile doesn\'t exist');
             return redirect()->back(); 

@@ -14,7 +14,6 @@ class Patient extends Model
         'phone',
         'age',
         'code',
-        'diagnoses',
         'gender',
         'birthdate',
         'attendance_date',
@@ -32,9 +31,9 @@ class Patient extends Model
         return rand(pow(10, 8-1), pow(10, 8)-1);
     }
 
-    public function diagnosesDescriptions()
+    public function diagnoses()
     {
-        return $this->hasMany(DiagnoseDescription::class);
+        return $this->belongsToMany(Diagnose::class, 'diagnose_patient')->withPivot('description', 'treatment_protocol');;
     }
 
 }

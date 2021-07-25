@@ -19,7 +19,6 @@ class CreatePatientsTable extends Migration
             $table->string('phone');
             $table->integer('age');
             $table->integer('code');
-            $table->text('diagnoses')->nullable();
             $table->enum('gender',['male', 'female']);
             $table->date('birthdate');
             $table->date('attendance_date');

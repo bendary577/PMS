@@ -13,8 +13,4 @@ class Medicine extends Model
         'name'
     ];
 
-    public function diagnosesDescription()
-    {
-        return $this->belongsToMany(DiagnoseDescription::class, 'medicine_diagnoses_description');
-    }
 }

@@ -72,20 +72,20 @@
             </div>
         </div>
         <div class="row">
-            @if(count($patient->diagnosesDescriptions) > 0)
+            @if($diagnoses)
                 <div class="title my-4"><h3>Diagnoses</h3></div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Diagnose Name</th>
-                            <th scope="col">dose</th>
+                            <th scope="col">protocol</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($patient->diagnosesDescriptions as $diagnose_description)
+                        @foreach($diagnoses as $diagnose)
                             <tr>
-                                <th scope="row">$diagnose_description->diagnose->name</th>
-                                <td>$diagnose_description->medicines->pivot->dose</td>
+                                <th scope="row">{{ $diagnose->name }}</th>
+                                <td>{{ $diagnose->protocol }}</td>
                             </tr>
                         @endforeach
                     </tbody>

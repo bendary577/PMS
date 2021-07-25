@@ -131,10 +131,14 @@ class AuthenticationController extends Controller
             $credentials = $request->only('username', 'password');
 
             if (Auth::attempt($credentials)) {
+                var_dump($user->name);
                 return redirect()->intended('/profile');
+            }else{
+                return redirect('login')->with('error', 'Oppes! You have entered invalid password');
             }
+
         }else{
-            return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
+            return redirect('login')->with('error', 'Oppes! It seems you didn\'t register in our system');
         }
     }
 

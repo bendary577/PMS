@@ -20,9 +20,9 @@ class Diagnose extends Model
         return $this->belongsTo(MedicalSpeciality::class);
     }
 
-    public function diagnosesDescription()
+    public function patients()
     {
-        return $this->hasOne(DiagnoseDescription::class);
+        return $this->belongsToMany(Patient::class, 'diagnose_patient')->withPivot('description', 'treatment_protocol');
     }
 
 }
