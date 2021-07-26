@@ -16,33 +16,33 @@
                     <h3>{{ Auth::user()->name }}</h3>
                     <!------------------- JOB ------------------------>
                     @if(Auth::user()->getHasDoctorProfileAttribute())
-                    <p>Doctor</p>
+                    <p>{{ __('lang.acc.doctor')}}</p>
                     @elseif(Auth::user()->getHasReceptionistProfileAttribute())
-                    <p>Receptionist</p>
+                    <p>{{ __('lang.acc.receptionist')}}</p>
                     @else
-                    <p>admin</p>
+                    <p>{{ __('lang.acc.admin')}}</p>
                     @endif
                     <!------------------- doctor medical speciality ------------------------>
                     @if(Auth::user()->getHasDoctorProfileAttribute())
                         @if(isset(Auth::user()->profile->medicalSpeciality))
                         <p>{{ Auth::user()->profile->medicalSpeciality->name }}</p>
                         @else
-                        <p class="text-danger">No Medical Speciality Chosen</p>
+                        <p class="text-danger">{{ __('lang.acc.no_medical_speciality')}}</p>
                         @endif
                     @endif
                     <!------------------- about description ------------------------>
                     @if(isset(Auth::user()->profile->about))
                     <p>{{ Auth::user()->profile->about }}</p>
                     @else
-                    <p>no about description</p>
+                    <p>{{ __('lang.acc.no_about')}}</p>
                     @endif
                     <!------------------- edit profile link ------------------------>
                     @if(Auth::user()->getHasDoctorProfileAttribute())
-                    <a href="{{route('doctor.edit.profile')}}" class="text-primary">edit profile</a>
+                    <a href="{{route('doctor.edit.profile')}}" class="text-primary">{{ __('lang.acc.edit_profile')}}</a>
                     @elseif(Auth::user()->getHasReceptionistProfileAttribute())
-                    <a href="{{route('receptionist.edit.profile')}}" class="text-primary">edit profile</a>
+                    <a href="{{route('receptionist.edit.profile')}}" class="text-primary">{{ __('lang.acc.edit_profile')}}</a>
                     @else
-                    <a href="{{route('admin.edit.profile')}}" class="text-primary">edit profile</a>
+                    <a href="{{route('admin.edit.profile')}}" class="text-primary">{{ __('lang.acc.edit_profile')}}</a>
                     @endif
                 </div>
             </div>

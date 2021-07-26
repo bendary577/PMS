@@ -13,7 +13,7 @@
         <form method="POST" action="{{route('storeUser')}}">
         {{ csrf_field() }}
             <div class="text-center">
-                <h3>System Registration</h3>
+                <h3>{{ __('lang.signup.registration')}}</h3>
             </div>
 
             <!--- if user is added is added successfully ----------->
@@ -39,50 +39,52 @@
         <div class="form-outline mb-4">
             <input type="text" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter your name" name="name"/>
-            <label class="form-label" for="form3Example3">Complete Name</label>
+            <label class="form-label" for="form3Example3">{{ __('lang.signup.name')}}</label>
           </div>
 
           <!-- Username input -->
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter a valid username" name="username"/>
-            <label class="form-label" for="form3Example3">Username</label>
+            <label class="form-label" for="form3Example3">{{ __('lang.signup.username')}}</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter password" name="password"/>
-            <label class="form-label" for="form3Example4">Password</label>
+            <label class="form-label" for="form3Example4">{{ __('lang.signup.password')}}</label>
           </div>
 
             <!-- Confirm Password input -->
            <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter password" name="confirmPassword"/>
-            <label class="form-label" for="form3Example4">Confirm Password</label>
+            <label class="form-label" for="form3Example4">{{ __('lang.signup.confirm_password')}}</label>
           </div>
+
+          <div class="security_code" id="security_code"></div>
 
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="radio" value="receptionist" name="account" id="form2Example3" />
+              <input class="form-check-input me-2" type="radio" value="receptionist" name="account" id="rec" />
               <label class="form-check-label" for="form2Example3">
-                receptionist
+              {{ __('lang.signup.receptionist')}}
               </label>
             </div>
 
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="radio" value="doctor" name="account" id="form2Example3" />
+              <input class="form-check-input me-2" type="radio" value="doctor" name="account" id="doctor" />
               <label class="form-check-label" for="form2Example3">
-                doctor
+              {{ __('lang.signup.doctor')}}
               </label>
             </div>
 
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="radio" value="admin" name="account" id="form2Example3" />
+              <input class="form-check-input me-2" type="radio" value="admin" name="account" id="admin" class="admin_radio"/>
               <label class="form-check-label" for="form2Example3">
-                admin
+              {{ __('lang.signup.admin')}}
               </label>
             </div>
 
@@ -90,14 +92,34 @@
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Register
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ __('lang.signup.register')}}
             </button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">already have an account? <a href="{{route('login')}}"class="link-danger">Login</a></p>
+            <p class="small fw-bold mt-2 pt-1 mb-0">{{ __('lang.signup.have_account')}} <a href="{{route('login')}}"class="link-danger">{{ __('lang.login')}}</a></p>
           </div>
 
         </form>
       </div>
     </div>
   </div>
+          <script>
+                $(document).ready(function(){
+                    $('input[name="account"]').change(function() {
+                      if($('#admin').prop('checked')){
+                        let div = document.getElementById("security_code");
+                        let admin_code_input = {!! json_encode($admin_code_input, JSON_HEX_TAG) !!};
+                        if(div.childElementCount === 0){
+                            $('.security_code').append(admin_code_input); 
+                        }
+                      }else{
+                        let div = document.getElementById("security_code");
+                        if(div.childElementCount !== 0){
+                          while (div.lastElementChild) {
+                            div.removeChild(div.lastElementChild);
+                          }
+                        }   
+                      }
+                    });
+                });
+            </script>
 </section>
 @endsection

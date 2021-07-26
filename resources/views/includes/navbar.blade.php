@@ -6,20 +6,23 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">{{ __('lang.home')}} <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#">{{ __('lang.contacts')}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Services</a>
+        <a class="nav-link" href="#">{{ __('lang.services')}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contacts</a>
+        <a class="nav-link" href="#">{{ __('lang.about')}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('change.language', ['lang' => app()->getLocale() == 'en' ? 'ar' : 'en' ])}}">{{ app()->getLocale() == 'en' ? 'اللغة العربية' : 'english' }}</a>
       </li>
     </ul>
     <a  href="{{route('login')}}" class="btn btn-success"> 
-        login
+        {{ __('lang.login')}}
     </a>
   </div>
 </nav>

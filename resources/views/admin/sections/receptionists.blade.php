@@ -18,10 +18,10 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Shift start</th>
-                        <th scope="col">Shift End</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{{ __('lang.admin.table.name')}}</th>
+                        <th scope="col">{{ __('lang.admin.table.shift_start')}}</th>
+                        <th scope="col">{{ __('lang.admin.table.shift_end')}}</th>
+                        <th scope="col">{{ __('lang.admin.table.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,12 +39,12 @@
                             <td>--</td>
                             @endif
                             <td>
-                                <a href="{{route('admin.edit.receptionist', [ 'id' => $receptionist->id ])}}" class="btn btn-info">update account</a>
-                                <a href="{{route('admin.delete.receptionist', [ 'id' => $receptionist->id ])}}" class="btn btn-danger">delete account</a>
+                                <a href="{{route('admin.edit.receptionist', [ 'id' => $receptionist->id ])}}" class="btn btn-info">{{ __('lang.admin.update_account')}}</a>
+                                <a href="{{route('admin.delete.receptionist', [ 'id' => $receptionist->id ])}}" class="btn btn-danger">{{ __('lang.admin.delete_account')}}</a>
                                 @if($receptionist->user->blocked == 0)
-                                <a href="{{route('admin.block.account', [ 'id' => $receptionist->user->id ])}}" class="btn btn-warning">block account</a>
+                                <a href="{{route('admin.block.account', [ 'id' => $receptionist->user->id ])}}" class="btn btn-warning">{{ __('lang.admin.block_account')}}</a>
                                 @else
-                                <a href="{{route('admin.unblock.account', [ 'id' => $receptionist->user->id ])}}" class="btn btn-success">unblock account</a>
+                                <a href="{{route('admin.unblock.account', [ 'id' => $receptionist->user->id ])}}" class="btn btn-success">{{ __('lang.admin.unblock_account')}}</a>
                                 @endif
                             </td>
                         </tr>
@@ -52,7 +52,7 @@
                 </tbody>
             </table>
         @else
-            <h3 class="text-danger mt-4">Sorry, no receptionists are registered in the system right now!</h3>
+            <h3 class="text-danger mt-4">{{__('lang.admin.no_receptionists')}}</h3>
         @endif
     </div>
 </div>

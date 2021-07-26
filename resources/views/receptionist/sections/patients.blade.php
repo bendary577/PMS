@@ -3,14 +3,14 @@
        <div class="col-md-4">
             <a class="btn btn-success" href="{{route('receptionist.add.patient')}}">
                <li class="fa fa-plus" style="font-size:18px"></li>
-               <h6>Add New Patient</h6>
+               <h6>{{ __('lang.rec.add_patient')}}</h6>
             </a>
        </div>
     </div>
     <hr class="mt-5">
     <div class="row mt-2">
         <div class="col-12">
-            <h2>Search for a  Patient</h2>
+            <h2>{{ __('lang.rec.search_patient')}}</h2>
         </div>
         <!----------- search --------------->
         <div class="col-12">
@@ -35,9 +35,9 @@
             <form method="POST" action="{{route('receptionist.patients.search')}}">
             {{ csrf_field() }}
                 <div class="input-group rounded">
-                    <input type="text" class="form-control rounded" placeholder="Search with Patient Code" aria-label="Search"
+                    <input type="text" class="form-control rounded" placeholder="{{ __('lang.rec.search_code')}}" aria-label="Search"
                         aria-describedby="search-addon" required name="code"/>
-                    <input class="input-group-text border-0" id="search-addon" type="submit" value="Search" />
+                    <input class="input-group-text border-0" id="search-addon" type="submit" value="{{ __('lang.rec.search')}}" />
                 </div>
             </form>
         </div>

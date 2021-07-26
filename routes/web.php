@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 //--------- lang ----------------
 
-// Route::get('/{lang}', [App\Http\Controllers\LocalizationController::class, 'index'])->name('change.language');
+Route::get('/language/{lang}', [App\Http\Controllers\LocalizationController::class, 'index'])->name('change.language');
 
 //-------- auth ------------
 

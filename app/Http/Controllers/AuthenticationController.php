@@ -17,7 +17,8 @@ class AuthenticationController extends Controller
 {
     public function register()
     {
-      return view('auth.register');
+      $admin_code_input = view('auth.add_admin')->render();
+      return view('auth.register', ['admin_code_input' => $admin_code_input]);
     }
 
     public function storeUser(Request $request)

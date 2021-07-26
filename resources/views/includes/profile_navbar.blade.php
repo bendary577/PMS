@@ -19,24 +19,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        Hospita
+        {{ __('lang.accnav.brand')}}
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           @if(Auth::user()->getHasReceptionistProfileAttribute())
-            <a class="nav-link" href="{{route('receptionist.dashboard')}}">Dashboard</a>
+            <a class="nav-link" href="{{route('receptionist.dashboard')}}">{{ __('lang.accnav.dashboard')}}</a>
           @elseif(Auth::user()->getHasDoctorProfileAttribute())
-          <a class="nav-link" href="{{route('doctor.dashboard')}}">Dashboard</a>
+          <a class="nav-link" href="{{route('doctor.dashboard')}}">{{ __('lang.accnav.dashboard')}}</a>
           @else
-          <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
+          <a class="nav-link" href="{{route('admin.dashboard')}}">{{ __('lang.accnav.dashboard')}}</a>
           @endif
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('profile')}}">Profile</a>
+          <a class="nav-link" href="{{route('profile')}}">{{ __('lang.accnav.profile')}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('logout')}}">Logout</a>
+          <a class="nav-link" href="{{ route('change.language', ['lang' => app()->getLocale() == 'en' ? 'ar' : 'en' ])}}">{{ app()->getLocale() == 'en' ? 'اللغة العربية' : 'english' }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('logout')}}">{{ __('lang.accnav.logout')}}</a>
         </li>
       </ul>
       <!-- Left links -->

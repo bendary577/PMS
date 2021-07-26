@@ -75,6 +75,10 @@ a:focus {
     margin-left: -250px;
 }
 
+#sidebar.in_active {
+    margin-right : -250px;
+}
+
 #sidebar .sidebar-header {
     padding: 20px;
     background: cornflowerblue;

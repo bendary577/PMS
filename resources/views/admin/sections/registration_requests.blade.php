@@ -17,10 +17,10 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Account</th>
-                        <th scope="col">Created At</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{{ __('lang.admin.table.name')}}</th>
+                        <th scope="col">{{ __('lang.admin.table.account')}}</th>
+                        <th scope="col">{{ __('lang.admin.table.created_at')}}</th>
+                        <th scope="col">{{ __('lang.admin.table.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,24 +28,24 @@
                         <tr>
                             <th scope="row">{{ $user->name }}</th>
                             @if($user->getHasReceptionistProfileAttribute())
-                            <td>Receptionist</td>
+                            <td>{{ __('lang.acc.receptionist')}}</td>
                             @elseif($user->getHasDoctorProfileAttribute())
-                            <td>Doctor</td>
+                            <td>{{ __('lang.acc.doctor')}}</td>
                             @else
-                            <td>Admin</td>
+                            <td>{{ __('lang.acc.admin')}}</td>
                             @endif
                             <th scope="row">{{ $user->name }}</th>
                             <td>{{ $user->created_at }}</td>
                             <td>
-                                <a href="{{route('admin.activate.registration.requests', ['id' => $user->id ])}}" class="btn btn-success">activate account</a>
-                                <a href="{{route('admin.delete.registration.requests', ['id' => $user->id ])}}" class="btn btn-danger">delete request</a>
+                                <a href="{{route('admin.activate.registration.requests', ['id' => $user->id ])}}" class="btn btn-success">{{ __('lang.admin.activate')}}</a>
+                                <a href="{{route('admin.delete.registration.requests', ['id' => $user->id ])}}" class="btn btn-danger">{{ __('lang.admin.delete_request')}}</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         @else
-            <h3 class="text-danger mt-4">Sorry, no registration requests to the system right now!</h3>
+            <h3 class="text-danger mt-4">{{ __('lang.admin.no_requests')}}</h3>
         @endif
     </div>
 </div>

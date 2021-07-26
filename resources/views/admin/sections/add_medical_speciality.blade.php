@@ -13,13 +13,13 @@
         </ul>
     @endif
 
-    <div class=""><h2>Add New Medical Speciality</h2></div>
+    <div class=""><h2>{{__('lang.admin.add_medical_speciality')}}</h2></div>
     <form method="POST" action="{{route('admin.store.medical.speciality')}}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+            <label for="name">{{__('lang.admin.table.name')}}</label>
+            <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="{{__('lang.admin.table.name')}}">
         </div>
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button type="submit" class="btn btn-primary mt-2">{{__('lang.submit')}}</button>
     </form>
 </div>

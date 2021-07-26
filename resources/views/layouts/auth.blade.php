@@ -3,7 +3,7 @@
 <head>
     @include('includes.heads.auth_head')
 </head>
-<body dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+<body id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
     @yield('content')
 </body>
 </html>

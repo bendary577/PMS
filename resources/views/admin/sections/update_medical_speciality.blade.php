@@ -15,16 +15,16 @@
     @endif
 
     @if($medicalSpeciality)
-    <div class=""><h2>Update Medical Speciality</h2></div>
+    <div class=""><h2>{{__('lang.admin.update_medical_speciality')}}</h2></div>
     <form method="POST" action="{{route('admin.update.medical.speciality', ['id' => $medicalSpeciality->id ])}}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="name" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+            <label for="name">{{__('lang.admin.table.name')}}</label>
+            <input type="name" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="{{__('lang.admin.table.name')}}">
         </div>
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button type="submit" class="btn btn-primary mt-2">{{__('lang.submit')}}</button>
     </form>
     @else
-    <h4 class="text-danger">sorry, medical speciality is not available</h4>
+    <h4 class="text-danger">{{__('lang.admin.no_medical_speciality')}}</h4>
     @endif
 </div>

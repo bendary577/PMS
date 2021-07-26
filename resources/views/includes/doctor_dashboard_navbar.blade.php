@@ -2,7 +2,7 @@
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fa fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
+                        <span>{{ __('lang.acc.toggle_sidebar')}}</span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-align-justify"></i>
@@ -15,7 +15,7 @@
                                         <a class="nav-link" href="{{route('doctor.clinic')}}">
                                             <div class="text-center">
                                                 <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                                <p>clinic</p>
+                                                <p>{{ __('lang.dashboard.clinic')}}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -24,7 +24,7 @@
                                         <a class="nav-link" href="{{route('doctor.add.clinic')}}">
                                             <div class="text-center">
                                                 <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                                <p class="text-danger">No Clinic Yet!</p>
+                                                <p class="text-danger">{{ __('lang.dashboard.no_clinic')}}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -33,7 +33,7 @@
                                 <a class="nav-link" href="{{route('doctor.doctor.file', ['id' => Auth::user()->profile->id])}}">
                                     <div class="text-center">
                                         <img src="{{url('/images/dashboard/clinics.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>file history</p>
+                                        <p>{{ __('lang.dashboard.file_history')}}</p>
                                     </div>
                                 </a>
                             </li>

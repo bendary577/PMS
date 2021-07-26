@@ -1,19 +1,19 @@
 <div class="contacts my-5" id="contacts">
-    <div class="title_div text-center my-5"><h3>Contact Us</h3></div>
+    <div class="title_div text-center my-5"><h3>{{__('lang.contact.title')}}</h3></div>
     <div class="form4 top">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-md-offset-2">
                     <div class="form-bg">
                         <form class="form">
-                            <div class="form-group"> <label class="sr-only">Name</label> <input type="text" class="form-control" required="" id="nameNine" placeholder="Your Name"> </div>
-                            <div class="form-group"> <label class="sr-only">Email</label> <input type="email" class="form-control" required="" id="emailNine" placeholder="Email Address"> </div>
-                            <div class="form-group"> <label class="sr-only">Name</label> <textarea class="form-control" required="" rows="7" id="messageNine" placeholder="Write message"></textarea> </div> <button type="submit" class="btn btn-primary text-center">Send Message</button>
+                            <div class="form-group"> <label class="sr-only">{{__('lang.contact.name')}}</label> <input type="text" class="form-control" required="" id="nameNine" placeholder="{{ __('lang.contact.name')}}"> </div>
+                            <div class="form-group"> <label class="sr-only">{{__('lang.contact.email')}}</label> <input type="email" class="form-control" required="" id="emailNine" placeholder="{{ __('lang.contact.email')}}"> </div>
+                            <div class="form-group"> <label class="sr-only">{{__('lang.contact.message')}}</label> <textarea class="form-control" required="" rows="7" id="messageNine" placeholder="{{ __('lang.contact.message')}}"></textarea> </div> <button type="submit" class="btn btn-primary text-center">{{ __('lang.contact.send')}}</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-10">
-                    <div class="title_div text-center my-5"><h3>Follow Us on Social Media</h3></div>
+                    <div class="title_div text-center my-5"><h3>{{__('lang.contact.social_media')}}</h3></div>
                     <div class="social_media_links"> 
                         <ul class="social">
                             <li>
@@ -21,7 +21,7 @@
                                     <a href="https://twitter.com/share?url=URLTOSHARE" class="tw" title="Tweet this page!">
                                         <i class="icon-twitter"></i>
                                     </a>
-                                    <h6 class="ml-3 mt-1">Twitter</h6>
+                                    <h6 class="ml-3 mt-1">{{__('lang.contact.twitter')}}</h6>
                                 </div>
                             </li>
                             <li>
@@ -29,7 +29,7 @@
                                 <a href="https://www.facebook.com/sharer.php?u=URLTOSHARE&amp;t=TITLE" class="fb" title="Share this page!">
                                     <i class="icon-facebook"></i>
                                 </a>
-                                <h6 class="ml-3 mt-1">Facebook</h6>
+                                <h6 class="ml-3 mt-1">{{__('lang.contact.facebook')}}</h6>
                             </div>
                             </li>
                             <li>
@@ -37,7 +37,7 @@
                                 <a href="https://plus.google.com/share?url=URLTOSHARE" class="gp" title="Share this page!">
                                     <i class="icon-google-plus"></i>
                                 </a>
-                                <h6 class="ml-3 mt-1">Google Plus</h6>
+                                <h6 class="ml-3 mt-1">{{__('lang.contact.google')}}</h6>
                             </div>
                             </li>
                         </ul>

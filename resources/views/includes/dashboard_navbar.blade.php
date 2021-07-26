@@ -2,7 +2,7 @@
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fa fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
+                        <span>{{ __('lang.acc.toggle_sidebar')}}</span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-align-justify"></i>
@@ -14,7 +14,7 @@
                                 <a class="nav-link" href="{{route('receptionist.patients')}}">
                                     <div class="text-center">
                                         <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>patients</p>
+                                        <p>{{ __('lang.dashboard.patients')}}</p>
                                     </div>
                                 </a>
                             </li>
@@ -22,7 +22,7 @@
                                 <a class="nav-link" href="{{route('receptionist.clinics')}}">
                                     <div class="text-center">
                                         <img src="{{url('/images/dashboard/clinics.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>clinics</p>
+                                        <p>{{ __('lang.dashboard.clinics')}}</p>
                                     </div>
                                 </a>
                             </li>
@@ -30,7 +30,7 @@
                                 <a class="nav-link" href="{{route('receptionist.doctors')}}">
                                     <div class="text-center">
                                         <img src="{{url('/images/dashboard/doctors.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>doctors</p>
+                                        <p>{{ __('lang.dashboard.doctors')}}</p>
                                     </div>
                                 </a>
                             </li>

@@ -3,8 +3,8 @@
 <head>
     @include('includes.heads.home_head')
 </head>
-<body><!-- dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}" -->
-<div  id="main">
+<body>
+<div id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
     @include('includes.navbar')
     @yield('content')
     @include('includes.footer')

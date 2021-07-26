@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="my-4">
-            <a href="{{route('admin.add.medical.speciality')}}" class="btn btn-success">Add New Medical Speciality</a>
+            <a href="{{route('admin.add.medical.speciality')}}" class="btn btn-success">{{ __('lang.admin.add_medical_speciality')}}</a>
         </div>
 
         <div>
@@ -20,8 +20,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{{__('lang.admin.table.name')}}</th>
+                        <th scope="col">{{__('lang.admin.table.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,15 +29,15 @@
                         <tr>
                             <th scope="row">{{$medicalSpeciality->name}}</th>
                             <td>
-                                <a href="{{route('admin.edit.medical.speciality', ['id' => $medicalSpeciality->id ])}}" class="btn btn-info">edit</a>
-                                <a href="{{route('admin.delete.medical.speciality', ['id' => $medicalSpeciality->id ])}}" class="btn btn-danger">delete</a>
+                                <a href="{{route('admin.edit.medical.speciality', ['id' => $medicalSpeciality->id ])}}" class="btn btn-info">{{__('lang.admin.edit')}}</a>
+                                <a href="{{route('admin.delete.medical.speciality', ['id' => $medicalSpeciality->id ])}}" class="btn btn-danger">{{__('lang.admin.delete')}}</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         @else
-            <h3 class="text-danger mt-4">Sorry, no medical specialities are registered in the system right now!</h3>
+            <h3 class="text-danger mt-4">{{__('lang.admin.no_medical_specialities')}}</h3>
         @endif
     </div>
 </div>

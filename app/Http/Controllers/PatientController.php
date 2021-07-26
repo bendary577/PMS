@@ -185,7 +185,6 @@ class PatientController extends Controller
         if(Patient::where('id', $id)->exists()) {
             $medical_specialities = MedicalSpeciality::all();
             $diagnoses = Diagnose::all();
-            var_dump(count($diagnoses));
             $patient = Patient::find($id);
             $add_diagnose_form = view('doctor.sections.add_diagnose', ['medical_specialities' => $medical_specialities, 'patient' => $patient])->render();
             return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'diagnoses' => $diagnoses, 'medical_specialities' => $medical_specialities, 'add_diagnose_form' => $add_diagnose_form ]);

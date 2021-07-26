@@ -6,9 +6,9 @@
       <!-- Section: CTA -->
       <section class="">
         <p class="d-flex justify-content-center align-items-center">
-          <div class="me-3 my-2">Register for free</div>
+          <div class="me-3 my-2">{{__('lang.footer.register')}}</div>
           <button type="button" class="btn btn-outline-light btn-rounded">
-            Sign up!
+            {{ __('lang.footer.signup')}}
           </button>
         </p>
       </section>
@@ -18,8 +18,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">PMS.com</a>
+      {{ __('lang.footer.copyrights')}}
+    <a class="text-white" href="https://mdbootstrap.com/">PMS.com</a>
     </div>
     <!-- Copyright -->
   </footer>

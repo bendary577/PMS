@@ -15,33 +15,33 @@
     @endif
 
     @if($clinicId && $id)
-    <div class=""><h2>Add New Appointment</h2></div>
+    <div class=""><h2>{{ __('lang.rec.add_appointment')}}</h2></div>
     <form method="POST" action="{{route('receptionist.patient.store.appointment', ['clinicId'=>$clinicId, 'id'=>$id])}}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="date">Birth Date</label>
-            <input type="date" name="date" class="form-control" id="birth_date" placeholder="Birth date">
+            <label for="date">{{ __('lang.rec.table.birth_date')}}</label>
+            <input type="date" name="date" class="form-control" id="birth_date" placeholder="{{ __('lang.rec.table.birth_date')}}">
         </div>
         <div class="form-group">
-            <label for="from">From : </label>
+            <label for="from">{{ __('lang.doctor.table.from')}}</label>
             <input type="time" name="from" required step="3600">
         </div>
         <div class="form-group">
-            <label for="to">To : </label>
+            <label for="to">{{ __('lang.doctor.table.to')}}</label>
             <input type="time" name="to" required step="3600">
         </div>
         <div class="form-group">
-            <label for="inputState">Appointment Reason</label>
+            <label for="inputState">{{ __('lang.doctor.table.appointment_reason')}}</label>
             <select id="inputState" name="reason" class="form-control">
-                <option selected>Select</option>
-                <option value="new visit">new visit</option>
-                <option value="consultant">consultant</option>
-                <option value="follow up">follow up</option>
+                <option selected>{{ __('lang.doctor.select')}}</option>
+                <option value="new visit">{{ __('lang.rec.new_visit')}}</option>
+                <option value="consultant">{{ __('lang.rec.consultant')}}</option>
+                <option value="follow up">{{ __('lang.rec.follow_up')}}</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button type="submit" class="btn btn-primary mt-2">{{ __('lang.submit')}}</button>
     </form>
     @else
-    <h4 class="text-danger">sorry, something went wrong while making new appointment</h4>
+    <h4 class="text-danger">{{ __('lang.rec.no_appointment')}}</h4>
     @endif
 </div>

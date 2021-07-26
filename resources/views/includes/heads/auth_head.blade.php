@@ -9,6 +9,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

@@ -4,10 +4,10 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Specialization</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">{{__('lang.doctor.table.name')}}</th>
+                    <th scope="col">{{__('lang.admin.table.mobile')}}</th>
+                    <th scope="col">{{__('lang.admin.table.specialization')}}</th>
+                    <th scope="col">{{__('lang.doctor.table.action')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,15 +22,15 @@
                     @if(isset($doctor->medicalSpeciality))
                     <td>{{ $doctor->medicalSpeciality->name }}</td>
                     @else
-                    <td>no medical speciality chosen</td>
+                    <td>{{__('lang.doctor.no_medical_speciality')}}</td>
                     @endif 
-                    <td><a href="" class="btn btn-success">check schedule</a></td>
+                    <td><a href="" class="btn btn-success">{{__('lang.admin.check_scheduale')}}</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     @else
-        <h3 class="text-danger mt-4">Sorry, no doctors are registered in the system right now!</h3>
+        <h3 class="text-danger mt-4">{{__('lang.admin.no_doctors')}}</h3>
     @endif
     </div>
 </div>

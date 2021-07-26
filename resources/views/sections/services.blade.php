@@ -40,6 +40,7 @@
 </div>
 -->
 
+<!--
 <br><br><br><br><br>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -163,7 +164,7 @@
             </div>
           </div>
         </div>
-        <!--  -->
+
         <div class="solution_cards_box sol_card_top_3">
           <div class="solution_card">
             <div class="hover_color_bubble"></div>
@@ -284,3 +285,4 @@
     </div>
   </div>
 </div>
+-->

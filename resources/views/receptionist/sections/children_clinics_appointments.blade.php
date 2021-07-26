@@ -4,11 +4,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">department</th>
-                    <th scope="col">doctor name</th>
-                    <th scope="col">available from</th>
-                    <th scope="col">available to</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">{{ __('lang.rec.table.department')}}</th>
+                    <th scope="col">{{ __('lang.rec.table.doctor_name')}}</th>
+                    <th scope="col">{{ __('lang.rec.table.available_from')}}</th>
+                    <th scope="col">{{ __('lang.rec.table.available_to')}}</th>
+                    <th scope="col">{{ __('lang.rec.table.action')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,13 +18,13 @@
                     <td>{{ $clinic->doctorProfile->user->name }}</td>
                     <td>{{ $clinic->available_from }}</td>
                     <td>{{ $clinic->available_to }}</td>
-                    <td><a href="{{route('receptionist.patient.add.appointment', ['clinicId' => $clinic->id, 'id' => $id ])}}" class="btn btn-info">add new appointment</a></td>
+                    <td><a href="{{route('receptionist.patient.add.appointment', ['clinicId' => $clinic->id, 'id' => $id ])}}" class="btn btn-info">{{ __('lang.rec.new_appointment')}}</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     @else
-        <h3 class="text-danger mt-4">Sorry, no clinics are registered in the system right now!</h3>
+        <h3 class="text-danger mt-4">{{ __('lang.rec.no_clinics')}}</h3>
     @endif
     </div>
 </div>
