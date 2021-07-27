@@ -53,10 +53,10 @@ class ClinicController extends Controller
             $doctor->clinic()->save($clinic);
             $clinic->doctorProfile()->associate($doctor)->save();
 
-            session()->flash('success', 'clinic added succesfuly');
+            session()->flash('success', trans('lang.doc.clinic_added'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'sorry, only doctors can create clinics');
+            session()->flash('error', trans('lang.doc.only_add_clinic'));
             return redirect()->back(); 
         }
     }
@@ -68,7 +68,7 @@ class ClinicController extends Controller
             $clinic = Clinic::find(Auth::user()->profile->clinic->id);
             return view('doctor.dashboard.dashboard_clinic', ['clinic' => $clinic]);
         }else{
-            session()->flash('error', 'clinic doesn\'t exist');
+            session()->flash('error', trans('lang.doc.no_clinic'));
             return redirect()->back(); 
         }
     }
@@ -115,7 +115,7 @@ class ClinicController extends Controller
 
         $clinic->save();
 
-        session()->flash('success', 'clinic info was updated succesfuly');
+        session()->flash('success', trans('lang.doc.clinic_updated'));
         return redirect()->back();   
     }
 

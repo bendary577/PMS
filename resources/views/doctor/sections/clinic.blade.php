@@ -12,16 +12,16 @@
 
     @if($clinic)
     <div class="my-5 title">
-    <div class="d-flex">
+    <div class="d-flex ">
         <h2>{{ __('lang.doctor.clinic_title', ['name' => Auth::user()->name])}}</h2>
         <a href="{{route('doctor.delete.clinic_hours')}}" class="btn btn-danger ml-2">{{__('lang.doctor.delete_clinic')}}</a>
     </div>
     @if(isset(Auth::user()->profile->medicalSpeciality))
-    <p class="mt-2">{{ Auth::user()->profile->medicalSpeciality }}</p>
+    <p class="mt-2">{{ Auth::user()->profile->medicalSpeciality->name }}</p>
     @else
     <p class="mt-2">{{__('lang.doctor.no_medical_speciality')}}</p>
     @endif
-    <p<p class="mt-2">{{ Auth::user()->profile->clinic->department}} department</p>
+    <p class="mt-2">{{ Auth::user()->profile->clinic->department}} department</p>
     </div>
     <div class="row">
             <h3>{{__('lang.doctor.working_hours')}}</h3>

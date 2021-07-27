@@ -4,7 +4,7 @@
     @include('includes.heads.dashboard_head')
 </head>
 <body>
-<div id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+<div id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}" class="{{(App::isLocale('ar') ? 'text-left' : 'text-right')}}">
     @include('includes.profile_navbar')
     <div class="wrapper">
         @include('includes.receptionist_sidebar')

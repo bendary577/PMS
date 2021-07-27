@@ -35,7 +35,7 @@ class ReceptionistProfileController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit()
     {
         return view('profile.dashboard.dashboard_receptionist_edit_profile');
     }
@@ -92,7 +92,7 @@ class ReceptionistProfileController extends Controller
         $receptionist->save();
         $profile->save();
 
-        session()->flash('success', 'receptionist profile was updated succesfuly');
+        session()->flash('success', trans('lang.rec.profile_updated'));
         return redirect()->back();   
     }
 
@@ -103,10 +103,10 @@ class ReceptionistProfileController extends Controller
             $receptionist = ReceptionistProfile::find($id);
             $receptionist->user->delete();
             $receptionist->delete();
-            session()->flash('success', 'receptionist profile deleted succesfuly');
+            session()->flash('success', trans('lang.rec.profile_deleted'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'error in deleting receptionist profile');
+            session()->flash('error', trans('lang.rec.error_deleting_profile'));
             return redirect()->back(); 
         }
     }

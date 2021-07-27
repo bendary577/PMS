@@ -65,7 +65,7 @@ class PatientController extends Controller
         $patient->medicines()->attach($medicine);
         */
         
-        session()->flash('success', 'patient profile added succesfuly');
+        session()->flash('success', trans('lang.patient_profile_added'));
         return redirect()->back();   
     }
 
@@ -126,7 +126,7 @@ class PatientController extends Controller
 
         $patient->save();
 
-        session()->flash('success', 'patient profile updated succesfuly');
+        session()->flash('success', trans('lang.patient_profile_updated'));
         return redirect()->back();  
     }
 
@@ -136,10 +136,10 @@ class PatientController extends Controller
         if(Patient::where('id', $id)->exists()) {
             $patient = Patient::find($id);
             $patient->delete();
-            session()->flash('success', 'patient profile deleted succesfuly');
+            session()->flash('success', trans('lang.patient_profile_deleted'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'patient profile receptionist profile');
+            session()->flash('error', 'user not found');
             return redirect()->back(); 
         }
     }
@@ -163,7 +163,7 @@ class PatientController extends Controller
         $patient->sheet_image_path = $path.$imageName;
         $patient->save();
 
-        session()->flash('success', 'patient sheet uploaded successfully');
+        session()->flash('success', trans('lang.patient_sheet_uploaded'));
         return redirect()->back(); 
     }
 
@@ -189,7 +189,7 @@ class PatientController extends Controller
             $add_diagnose_form = view('doctor.sections.add_diagnose', ['medical_specialities' => $medical_specialities, 'patient' => $patient])->render();
             return view('doctor.dashboard.dashboard_patient_file', ['patient' => $patient, 'diagnoses' => $diagnoses, 'medical_specialities' => $medical_specialities, 'add_diagnose_form' => $add_diagnose_form ]);
         }else{
-            session()->flash('error', 'patient profile doesn\'t exist');
+            session()->flash('error', trans('lang.no_patient'));
             return redirect()->back(); 
         }
     }

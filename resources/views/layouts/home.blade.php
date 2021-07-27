@@ -4,7 +4,7 @@
     @include('includes.heads.home_head')
 </head>
 <body>
-<div id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+<div id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}" class="{{(App::isLocale('ar') ? 'text-left' : 'text-right')}}">
     @include('includes.navbar')
     @yield('content')
     @include('includes.footer')

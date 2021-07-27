@@ -75,21 +75,21 @@
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="radio" value="receptionist" name="account" id="rec" />
+              <input class="form-check-input" type="radio" value="receptionist" name="account" id="rec" />
               <label class="form-check-label" for="form2Example3">
               {{ __('lang.signup.receptionist')}}
               </label>
             </div>
 
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="radio" value="doctor" name="account" id="doctor" />
+              <input class="form-check-input" type="radio" value="doctor" name="account" id="doctor" />
               <label class="form-check-label" for="form2Example3">
               {{ __('lang.signup.doctor')}}
               </label>
             </div>
 
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="radio" value="admin" name="account" id="admin" class="admin_radio"/>
+              <input class="form-check-input" type="radio" value="admin" name="account" id="admin" class="admin_radio"/>
               <label class="form-check-label" for="form2Example3">
               {{ __('lang.signup.admin')}}
               </label>
@@ -97,7 +97,7 @@
 
           </div>
 
-          <div class="text-center text-lg-start mt-4 pt-2">
+          <div class="text-center mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ __('lang.signup.register')}}
             </button>

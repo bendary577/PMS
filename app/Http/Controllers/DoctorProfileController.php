@@ -18,53 +18,13 @@ class DoctorProfileController extends Controller
         return view('admin.dashboard.dashboard_doctors', ['doctors' => $doctors]);
     }
 
-    public function create()
-    {
-       /*
-        $medicalSpecialities = MedicalSpeciality::all();
-        return view('admin.dashboard.dashboard_add_doctor', ['medicalSpecialities' => $medicalSpecialities]);
-        */
-    }
-
-
-    public function store(Request $request)
-    {
-       /* $validator = Validator::make($request->all(),
-        [
-            'name' => 'required|string|max:255',
-            'phone' => 'required|max:11',
-            'specialization' => 'required'
-        ]);
-
-        if ($validator->fails()){
-            return  redirect()->back()->withErrors('error', $validator->errors()->all());   
-        }
-
-        $user = new User();
-        $user->name = $request['name'];
-        $doctorProfile = new DoctorProfile();
-        $doctorProfile->phone = $request['phone'];
-
-        $doctorProfile->save();
-        $doctorProfile->user()->save($user);
-
-        $medical_speciality = MedicalSpeciality::where('id', $request['specialization'])->first();
-        //$medical_speciality->doctors()->save($doctorProfile);
-        $doctorProfile->medicalSpeciality()->associate($medical_speciality)->save();
-
-        session()->flash('success', 'doctor profile added succesfuly');
-        return redirect()->back();   
-        */
-    }
-
-
     public function show($id)
     {
         if(DoctorProfile::where('id', $id)->exists()) {
             $doctorProfile = DoctorProfile::find($id);
             return view('doctor.dashboard.dashboard_doctor_file', ['doctor' => $doctorProfile]);
         }else{
-            session()->flash('error', 'doctor profile doesn\'t exist');
+            session()->flash('error', trans('lang.doc.no_doc'));
             return redirect()->back(); 
         }
     }
@@ -122,7 +82,7 @@ class DoctorProfileController extends Controller
         $doctor->save();
         $doctor->profile->save();
 
-        session()->flash('success', 'receptionist profile was updated succesfuly');
+        session()->flash('success', trans('lang.doc.profile_updated'));
         return redirect()->back();   
     }
 
@@ -133,10 +93,10 @@ class DoctorProfileController extends Controller
             $doctorProfile = DoctorProfile::find($id);
             $doctorProfile->user->delete();
             $doctorProfile->delete();
-            session()->flash('success', 'doctor profile deleted succesfuly');
+            session()->flash('success', trans('lang.doc.profile_deleted'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'error in deleting doctor profile');
+            session()->flash('error', trans('lang.doc.error_deleting_profile'));
             return redirect()->back(); 
         }
     }

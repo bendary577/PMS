@@ -7,22 +7,22 @@
     'services' => 'Services',
     'about' => 'About',
     //------------------------- welcome section ----------------------------------------
-    'welcome' => 'Welcome is simply dummy text of the printing and typesetting industry.',
+    'welcome' => 'Welcome to Hospita, your number one solution to manage your medical institution and make your patients happy ! ',
     'getStarted'=> 'Get Started',
     //------------------------------------- about section ----------------------------
     'whatWeDo' => "What We Do",
-    'whatWeDo.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites",
-    'about.makeSimple' => "Make it Simple",
+    'whatWeDo.description' => "hospita is a medical application to make managing patients data more easier",
+    'about.makeSimple' => "easier communication",
     'about.makeSimple.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.differentLayout' => "Different Layout",
+    'about.differentLayout' => "let's take care of you",
     'about.differentLayout.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.uniqueDesign' => "Unique design",
+    'about.uniqueDesign' => "data is safe",
     'about.uniqueDesign.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.advancedOptions' => "Advanced Options",
+    'about.advancedOptions' => "easier solution",
     'about.advancedOptions.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.testingForPerfiction' => "Testing for Perfection",
+    'about.testingForPerfiction' => "customized for you",
     'about.testingForPerfiction.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.responsiveness' => "Responsiveness",
+    'about.responsiveness' => "one click action",
     'about.responsiveness.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
     
     //----------------------------------- contact us section ----------------------------
@@ -223,10 +223,58 @@
     'rec.dose' => 'Dose',
     'rec.no_diagnose' => 'patient has no diagnoses available',
     
-
         'download' => 'Download',
+        'upload' => 'Upload File',
         'go_back' => '< go back',
         'update' => 'Update',
         'submit' => 'Submit',
+
+        'no_user' => 'user doesn\'t exist',
+        'rec.update_success' => 'receptionist profile was updated succesfuly',
+        'acc.update_success' => 'your profile was updated succesfuly',
+        'user_activated' => 'user account activated successfully',
+        'user_blocked' => 'user account blocked successfully',
+        'user_unblocked' => 'user account unblocked successfully',
+        'user_deleted' => 'user account deleted successfully',
+        'admin.code_generated_success' => 'admin code generated successfully :code',
+
+        'acc_not_activated' => 'sorry, your account is not activated yet',
+        'acc_is_blocked' => 'sorry, your account is blocked',
+        'login.invalid_credentials' => 'Oppes! You have entered invalid password',
+        'login.didnt_register' => 'Oppes! It seems you didn\'t register in our system',
+        'admin.code_is_not_correct' => 'sorry, security code is not correct',
+
+        'patient_profile_added' => 'patient profile added succesfuly',
+        'patient_profile_updated' => 'patient profile updated succesfuly',
+        'patient_profile_deleted' => 'patient profile deleted succesfuly',
+        'patient_sheet_uploaded' => 'patient sheet uploaded successfully',
+        'no_patient' => 'patient profile doesn\'t exist',
+
+        'rec.profile_updated' => 'receptionist profile was updated succesfuly',
+        'rec.profile_deleted' => 'receptionist profile deleted succesfuly',
+        'rec.error_deleting_profile' => 'error in deleting receptionist profile',
+
+        'doc.clinic_added' => 'clinic added succesfuly',
+        'doc.only_add_clinic' => 'sorry, only doctors can create clinics',
+        'doc.no_clinic' => 'clinic doesn\'t exist',
+        'doc.clinic_updated' => 'clinic info was updated succesfuly',
+
+        'doc.no_doc' => 'doctor profile doesn\'t exist',
+        'doc.profile_updated' => 'doctor profile was updated succesfuly',
+        'doc.profile_deleted' => 'doctor profile deleted succesfuly',
+        'doc.error_deleting_profile' => 'error in deleting doctor profile',
+        
+        'name' => 'Name',
+        'phone' => 'Phone',
+        'about' => 'About Description',
+        'avatar' => 'Profile Image',
+        'specialization' => 'Specialization',
+       
+        'medical_spec.no_medical_spec' => 'no medical specialities are registered on the system',
+        'medical_spec.added' => 'medical speciality added succesfuly',
+        'medical_spec.updated' => 'medical speciality updated succesfuly',
+        'medical_spec.deleted' => 'medical speciality deleted succesfuly',
+        'medical_spec.error_deleting' => 'error while deleting medical speciality',
+        
         ]
 ?>

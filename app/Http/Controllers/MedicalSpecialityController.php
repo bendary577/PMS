@@ -38,7 +38,7 @@ class MedicalSpecialityController extends Controller
 
         $medicalSpeciality->save();
 
-        session()->flash('success', 'medical speciality added succesfuly');
+        session()->flash('success', trans('lang.medical_spec.added'));
         return redirect()->back();   
     }
 
@@ -75,7 +75,7 @@ class MedicalSpecialityController extends Controller
 
         $medicalSpeciality->save();
 
-        session()->flash('success', 'medical speciality profile updated succesfuly');
+        session()->flash('success', trans('lang.medical_spec.updated'));
         return redirect()->back(); 
     }
 
@@ -85,10 +85,10 @@ class MedicalSpecialityController extends Controller
         if(MedicalSpeciality::where('id', $id)->exists()) {
             $medicalSpeciality = MedicalSpeciality::find($id);
             $medicalSpeciality->delete();
-            session()->flash('success', 'medical speciality deleted succesfuly');
+            session()->flash('success', trans('lang.medical_spec.deleted'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'medical speciality receptionist profile');
+            session()->flash('error', trans('lang.medical_spec.error_deleting'));
             return redirect()->back(); 
         }
     }

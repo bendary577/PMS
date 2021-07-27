@@ -1,5 +1,6 @@
 <?php
  return [ 
+
     //---------------------------- nav bar -------------------------------------------
     'login'=> "تسجيل الدخول",
     'home' => 'الرئيسية',
@@ -8,7 +9,7 @@
     'about' => 'عن المؤسسة',
     //------------------------- welcome section ----------------------------------------
     'welcome' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
-    'getStarted'=> 'ابدا',
+    'getStarted'=> 'ابدأ الاَن',
     //------------------------------------- about section ----------------------------
     'whatWeDo' => "ماذا نفعل",
     'whatWeDo.description' => "تصميم وتطوير مشاريع للعملاء بافضل سعر وبشكل رائع",
@@ -231,8 +232,59 @@
 
 
         'download' => 'تحميل',
+        'upload' => 'رفع ملف',
         'go_back' => 'عودة للوراء >',
         'update' => 'تحديث',
         'submit' => 'تسجيل',
+
+
+        'no_user' => 'عذرا المستخدم غير موجود',
+        'rec.update_success' => 'تم تحديث حساب موظف الاستقبال بنجاح',
+        'acc.update_success' => 'تم تحديث حسابك بنجاح',
+        'user_activated' => 'تم تنشيط حساب المستخدم بنجاح',
+        'user_blocked' => 'تم حظر حساب المستخدم',
+        'user_unblocked' => 'تم فك حظر حساب المستخدم',
+        'user_deleted' => 'تم حذف حساب المستخدم',
+        'admin.code_generated_success' => ':code تم توليد كود المشرف بنجاح',
+
+        'acc_not_activated' => 'عذرا, لم يتم تنشيط حسابك بعد',
+        'acc_is_blocked' => 'عذرا, تم حظر حسابك',
+        'login.invalid_credentials' => 'كلمة سر خاطئة',
+        'login.didnt_register' => 'يبدو أنك غير مسجل لدينا حالياَ',
+        'admin.code_is_not_correct' => 'كلمة حماية خاطئة',
+
+        'patient_profile_added' => 'تم إضافة حساب مريض بنجاح',
+        'patient_profile_updated' => 'تم تحديث حساب المريض',
+        'patient_profile_deleted' => 'تم حذف حساب المريض',
+        'patient_sheet_uploaded' => 'تم رفع ملف المريض',
+        'no_patient' => 'حساب المريض غير موجود',
+
+        'rec.profile_updated' => 'تم تحديث حساب موظف الاستقبال',
+        'rec.profile_deleted' => 'تم حذف حساب موظف الاستقبال',
+        'rec.error_deleting_profile' => 'خطأ أثناء حذف حساب موظف الاستقبال',
+
+        'doc.clinic_added' => 'تم إضافة عيادة بنجاح',
+        'doc.only_add_clinic' => 'عذرا, يمكن فقط للطبيب إضافة عيادة',
+        'doc.no_clinic' => 'لا توجد عيادة',
+        'doc.clinic_updated' => 'تم تحديث معلومات العيادة',
+
+        'doc.no_doc' => 'حساب الطبيب غير موجود',
+        'doc.profile_updated' => 'تم تحديث حساب الطبيب بنجاح',
+        'doc.profile_deleted' => 'تم حذف حساب الطبيب',
+        'doc.error_deleting_profile' => 'يوجد خطأ أثناء حذف حساب الطبيب',
+
+        'name' => 'الإسم',
+        'phone' => 'رقم الهاتف',
+        'about' => 'البيانات الوصفية',
+        'avatar' => 'صورة الحساب',
+        'specialization' => 'التخصص الطبي',
+
+        'medical_spec.no_medical_spec' => 'لا يوجد تخصصات طبية مسجلة حالياَ',
+        'medical_spec.no_medical_spec' => 'لا يوجد أي تخصصات طبية مسجلة حالياّ',
+        'medical_spec.added' => 'تم إضافة تخصص طبي بنجاح',
+        'medical_spec.updated' => 'تم تحديث التخصص الطبي بنجاح',
+        'medical_spec.deleted' => 'تم حذف التخصص الطبي بنجاح',
+        'medical_spec.error_deleting' => 'خطأ أثناء حذف التخصص الطبي',
+
         ]
 ?>

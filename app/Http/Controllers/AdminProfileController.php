@@ -59,7 +59,7 @@ class AdminProfileController extends Controller
 
         $receptionist->save();
 
-        session()->flash('success', 'receptionist profile was updated succesfuly');
+        session()->flash('success', trans('lang.rec.update_success'));
         return redirect()->back();  
     }
 
@@ -115,7 +115,7 @@ class AdminProfileController extends Controller
         $admin->save();
         $admin->profile->save();
 
-        session()->flash('success', 'your profile was updated succesfuly');
+        session()->flash('success', trans('lang.acc.update_success'));
         return redirect()->back(); 
     }
 
@@ -141,10 +141,10 @@ class AdminProfileController extends Controller
             $user = User::find($id);
             $user->activated = true;
             $user->save();
-            session()->flash('success', 'user account activated successfully');
+            session()->flash('success', trans('lang.user_activated'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'user doesn\'t exist');
+            session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
     }
@@ -156,11 +156,11 @@ class AdminProfileController extends Controller
             $user->profile->security_code =  $security_code;
             $user->profile->save();
             $data = ['content' => `Thanks for registration, your code is `.$security_code];
-            Mail::to($user->email)->send(new ActivateAdminMail($data, $user->email));
-            session()->flash('success', 'admin code generated successfully');
+            //Mail::to($user->email)->send(new ActivateAdminMail($data, $user->email));
+            session()->flash('success', trans('lang.admin.code_generated_success', ['code' => $security_code]));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'user doesn\'t exist');
+            session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
     }
@@ -171,10 +171,10 @@ class AdminProfileController extends Controller
             $user = User::find($id);
             $user->blocked = true;
             $user->save();
-            session()->flash('success', 'user account blocked successfully');
+            session()->flash('success', trans('lang.user_blocked'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'user doesn\'t exist');
+            session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
     }
@@ -185,10 +185,10 @@ class AdminProfileController extends Controller
             $user = User::find($id);
             $user->blocked = false;
             $user->save();
-            session()->flash('success', 'user account unblocked successfully');
+            session()->flash('success', trans('lang.user_unblocked'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'user doesn\'t exist');
+            session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
     }
@@ -200,10 +200,10 @@ class AdminProfileController extends Controller
             $profile = $user->profile();
             $profile->delete();
             $user->delete();
-            session()->flash('success', 'user account deleted successfully');
+            session()->flash('success', trans('lang.user_deleted'));
             return redirect()->back(); 
         }else{
-            session()->flash('error', 'user doesn\'t exist');
+            session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
     }

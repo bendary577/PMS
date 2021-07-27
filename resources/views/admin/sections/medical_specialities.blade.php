@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="">
         <div class="my-4">
             <a href="{{route('admin.add.medical.speciality')}}" class="btn btn-success">{{ __('lang.admin.add_medical_speciality')}}</a>
         </div>
@@ -37,7 +37,7 @@
                 </tbody>
             </table>
         @else
-            <h3 class="text-danger mt-4">{{__('lang.admin.no_medical_specialities')}}</h3>
+            <h3 class="text-danger mt-4 mx-2">{{__('lang.admin.no_medical_specialities')}}</h3>
         @endif
     </div>
 </div>

@@ -75,7 +75,7 @@
                                 <div class="my-2">
                                     <input type="file" name="sheet_image" accept="image/*"  >
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-2">{{ __('lang.submit')}}</button>
+                                <button type="submit" class="btn btn-primary mt-2">{{ __('lang.upload')}}</button>
                             <form>
                         </div>
                     @endif

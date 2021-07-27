@@ -3,7 +3,8 @@
 <head>
     @include('includes.heads.auth_head')
 </head>
-<body id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}">
+<body id="main" dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}" class="{{(App::isLocale('ar') ? 'text-left' : 'text-right')}}">
+    @include('includes.auth_navbar')
     @yield('content')
 </body>
 </html>

@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthenticationController extends Controller
 {
@@ -121,13 +122,21 @@ class AuthenticationController extends Controller
 
             $user = User::where('username', $request['username'])->first();
 
+            if($user->activated == false && $user->getHasAdminProfileAttribute() && $user->profile->id !== 1){
+                //return view('auth.admin_activate_account', ['email' => $user->email]);
+                //return redirect()->route('request.admin.activation', ['email' => $user->email]);
+                //var_dump(112);
+                return redirect()->route('request.admin.activation', ['email' => $user->email]);
+                //Redirect::route('request.admin.activation',['email' => $user->email]);
+            }
+
             if($user->activated == false && !($user->getHasAdminProfileAttribute() && $user->profile->id === 1)){
-                session()->flash('error', 'sorry, your account is not activated yet');
+                session()->flash('error', trans('lang.acc_not_activated'));
                 return redirect()->back();
             }
 
             if($user->blocked == true){
-                session()->flash('error', 'sorry, your account is blocked');
+                session()->flash('error', trans('lang.acc_is_blocked'));
                 return redirect()->back();
             }
 
@@ -136,26 +145,27 @@ class AuthenticationController extends Controller
             if (Auth::attempt($credentials)) {
                 return redirect()->intended('/profile');
             }else{
-                return redirect('login')->with('error', 'Oppes! You have entered invalid password');
+                return redirect('login')->with('error', trans('lang.login.invalid_credentials'));
             }
 
         }else{
-            return redirect('login')->with('error', 'Oppes! It seems you didn\'t register in our system');
+            return redirect('login')->with('error', trans('lang.login.didnt_register'));
         }
     }
 
     public function activateAdminAccountView()
     {
-      return view('auth.admin_activate_account');
+      $email = request()->query('email');
+      return view('auth.admin_activate_account', ['email'=> $email]);
     }
 
     public function activateAdminAccount(Request $request, $email)
     {
-        var_dump($email);
         if(User::where('email', '=', $email)->exists()){
+            $user = User::where('email', $email)->first();
             $security_code = $user->profile->security_code;
-            if(strcmp( $request['security_code'], $security_code ) != 0){
-                session()->flash('error', 'sorry, security code is not correct');
+            if(strcmp(strval($request['security_code']), strval($security_code) ) != 0){
+                session()->flash('error', trans('lang.admin.code_is_not_correct'));
                 return redirect()->back();
             }else{
                 $user->activated = true;
@@ -163,7 +173,7 @@ class AuthenticationController extends Controller
                 return redirect()->intended('/login');
             }
         }else{
-            session()->flash('error', 'user doesn\'t exist');
+            session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
     }

@@ -1,34 +1,7 @@
-<!---
-<div clas="about my-5">
-    <div class="title_div text-center my-5"><h3>About</h3></div>
-    <div class="title text-center">
-        <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-    </div>
-    <div class="visual_icons">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 text-center">
-                    <img src="{{url('/images/home/about/manage.png')}}" width="150" height="150" class="my-4" alt="welcome" />
-                    <p>printing and typesetting</p>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                    <img src="{{url('/images/home/about/store.png')}}" width="150" height="150" class="my-4" alt="welcome" />
-                    <p>printing and typesetting</p>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                    <img src="{{url('/images/home/about/heart.png')}}" width="150" height="150" class="my-4" alt="welcome" />
-                    <p>printing and typesetting</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
-
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-<section class="section services-section" id="services">
+<section class="section services-section" id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">

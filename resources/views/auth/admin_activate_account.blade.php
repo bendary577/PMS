@@ -10,8 +10,8 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-      
-        <form method="POST" action="{{route('activate_admin', ['email' => ])}}">
+        @if(isset($email))
+        <form method="POST" action="{{route('activate.admin', ['email' => $email])}}">
         {{ csrf_field() }}
 
             <!--- if user is added is added successfully ----------->
@@ -36,7 +36,7 @@
           <!-- security code input -->
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter security code" name="security_code"/>
+              placeholder="{{ __('lang.signup.code')}}" name="security_code"/>
             <label class="form-label" for="form3Example3">{{ __('lang.signup.code')}}</label>
           </div>
 
@@ -44,9 +44,13 @@
             <button type="submit" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ __('lang.submit')}}
             </button>
-          </div>
+          </div>  
          
         </form>
+        @else
+        <h1>hello</h1>
+        @endif
+
       </div>
     </div>
   </div>

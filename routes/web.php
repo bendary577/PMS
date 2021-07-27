@@ -38,7 +38,7 @@ Route::get('/register', [App\Http\Controllers\AuthenticationController::class, '
 
 Route::post('/storeUser', [App\Http\Controllers\AuthenticationController::class, 'storeUser'])->name('storeUser');
 
-Route::get('/{email}/request_admin_activation', [App\Http\Controllers\AuthenticationController::class, 'activateAdminAccountView'])->name('request.admin.activation');
+Route::get('/request_admin_activation', [App\Http\Controllers\AuthenticationController::class, 'activateAdminAccountView'])->name('request.admin.activation');
 
 Route::post('/{email}/activate_admin', [App\Http\Controllers\AuthenticationController::class, 'activateAdminAccount'])->name('activate.admin');
 

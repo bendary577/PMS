@@ -22,7 +22,7 @@
             <label for="name">{{__('lang.admin.table.name')}}</label>
             <input type="name" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="{{__('lang.admin.table.name')}}">
         </div>
-        <button type="submit" class="btn btn-primary mt-2">{{__('lang.submit')}}</button>
+        <button type="submit" class="btn btn-primary mt-2">{{__('lang.update')}}</button>
     </form>
     @else
     <h4 class="text-danger">{{__('lang.admin.no_medical_speciality')}}</h4>

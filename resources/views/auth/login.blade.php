@@ -50,7 +50,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <input class="form-check-input " type="checkbox" value="" id="form2Example3" />
               <label class="form-check-label" for="form2Example3">
               {{ __('lang.login.remember_me')}}
               </label>
@@ -58,7 +58,7 @@
             <a href="#!" class="text-body">{{ __('lang.login.forgot_password')}}</a>
           </div>
 
-          <div class="text-center text-lg-start mt-4 pt-2">
+          <div class="text-center mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ __('lang.login')}}</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">{{ __('lang.login.dont_have_account')}} <a href="{{route('register')}}" class="link-danger">{{ __('lang.signup.register')}}</a></p>
