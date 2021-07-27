@@ -8,7 +8,8 @@
                         <form class="form">
                             <div class="form-group"> <label class="sr-only">{{__('lang.contact.name')}}</label> <input type="text" class="form-control" required="" id="nameNine" placeholder="{{ __('lang.contact.name')}}"> </div>
                             <div class="form-group"> <label class="sr-only">{{__('lang.contact.email')}}</label> <input type="email" class="form-control" required="" id="emailNine" placeholder="{{ __('lang.contact.email')}}"> </div>
-                            <div class="form-group"> <label class="sr-only">{{__('lang.contact.message')}}</label> <textarea class="form-control" required="" rows="7" id="messageNine" placeholder="{{ __('lang.contact.message')}}"></textarea> </div> <button type="submit" class="btn btn-primary text-center">{{ __('lang.contact.send')}}</button>
+                            <div class="form-group"> <label class="sr-only">{{__('lang.contact.message')}}</label> <textarea class="form-control" required="" rows="7" id="messageNine" placeholder="{{ __('lang.contact.message')}}"></textarea></div> 
+                            <button type="submit" class="btn btn-primary text-center">{{ __('lang.contact.send')}}</button>
                         </form>
                     </div>
                 </div>

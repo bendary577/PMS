@@ -49,15 +49,6 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
 
-      <!-- Avatar -->
-      <a
-        class="dropdown-toggle d-flex align-items-center hidden-arrow"
-        href="#"
-        id="navbarDropdownMenuLink"
-        role="button"
-        data-mdb-toggle="dropdown"
-        aria-expanded="false"
-      >
       @if(isset(Auth::user()->profile->avatar_path))
         <img
           src="{{url(Auth::user()->profile->avatar_path)}}"
@@ -76,21 +67,7 @@
           loading="lazy"
         />
       @endif
-      </a>
-      <ul
-        class="dropdown-menu dropdown-menu-end"
-        aria-labelledby="navbarDropdownMenuLink"
-      >
-        <li>
-          <a class="dropdown-item" href="#">My profile</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Settings</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Logout</a>
-        </li>
-      </ul>
+
     </div>
     <!-- Right elements -->
   </div>

@@ -5,12 +5,18 @@
     <div class="container p-4 pb-0">
       <!-- Section: CTA -->
       <section class="">
+        @if(!Auth::user())
         <p class="d-flex justify-content-center align-items-center">
           <div class="me-3 my-2">{{__('lang.footer.register')}}</div>
           <button type="button" class="btn btn-outline-light btn-rounded">
             {{ __('lang.footer.signup')}}
           </button>
         </p>
+        @else
+        <p class="d-flex justify-content-center align-items-center">
+          <div class="me-3 my-2">{{__('lang.footer.welcome')}}</div>
+        </p>
+        @endif
       </section>
       <!-- Section: CTA -->
     </div>

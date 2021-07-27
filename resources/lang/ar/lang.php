@@ -42,6 +42,7 @@
         'footer.register' => 'سجل مجانا',
         'footer.signup' => 'تسجيل',
         'footer.copyrights' => '© 2020 Copyright: PMS.com',
+        'footer.welcome' => 'أهلا بك في هوسبيتا ',
 
         //--------------------------------------------- sign up --------------------------------
 

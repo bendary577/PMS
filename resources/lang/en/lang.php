@@ -42,6 +42,7 @@
     'footer.register' => 'Register For Free',
     'footer.signup' => 'Sign Up',
     'footer.copyrights' => '© 2020 Copyright: PMS.com',
+    'footer.welcome' => 'Welcome to Hospita',
 
     //--------------------------------------------- sign up --------------------------------
 
