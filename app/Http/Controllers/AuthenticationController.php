@@ -17,8 +17,8 @@ class AuthenticationController extends Controller
 {
     public function register()
     {
-      $admin_code_input = view('auth.add_admin')->render();
-      return view('auth.register', ['admin_code_input' => $admin_code_input]);
+      $add_admin_warning = view('auth.add_admin_warning')->render();
+      return view('auth.register', ['add_admin_warning' => $add_admin_warning]);
     }
 
     public function storeUser(Request $request)
@@ -27,6 +27,7 @@ class AuthenticationController extends Controller
         [
             'name' => 'required|string|max:255',
             'username' => 'required|string|unique:users|max:255',
+            'email' => 'required',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -44,6 +45,7 @@ class AuthenticationController extends Controller
         $user = new User();
         $user->name = $request['name'];
         $user->username = $request['username'];
+        $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
         $user->activated = false;
         $user->blocked = false;
@@ -119,7 +121,7 @@ class AuthenticationController extends Controller
 
             $user = User::where('username', $request['username'])->first();
 
-            if($user->activated == false && !$user->getHasAdminProfileAttribute()){
+            if($user->activated == false && !($user->getHasAdminProfileAttribute() && $user->profile->id === 1)){
                 session()->flash('error', 'sorry, your account is not activated yet');
                 return redirect()->back();
             }
@@ -132,7 +134,6 @@ class AuthenticationController extends Controller
             $credentials = $request->only('username', 'password');
 
             if (Auth::attempt($credentials)) {
-                var_dump($user->name);
                 return redirect()->intended('/profile');
             }else{
                 return redirect('login')->with('error', 'Oppes! You have entered invalid password');
@@ -140,6 +141,30 @@ class AuthenticationController extends Controller
 
         }else{
             return redirect('login')->with('error', 'Oppes! It seems you didn\'t register in our system');
+        }
+    }
+
+    public function activateAdminAccountView()
+    {
+      return view('auth.admin_activate_account');
+    }
+
+    public function activateAdminAccount(Request $request, $email)
+    {
+        var_dump($email);
+        if(User::where('email', '=', $email)->exists()){
+            $security_code = $user->profile->security_code;
+            if(strcmp( $request['security_code'], $security_code ) != 0){
+                session()->flash('error', 'sorry, security code is not correct');
+                return redirect()->back();
+            }else{
+                $user->activated = true;
+                $user->save();
+                return redirect()->intended('/login');
+            }
+        }else{
+            session()->flash('error', 'user doesn\'t exist');
+            return redirect()->back(); 
         }
     }
 

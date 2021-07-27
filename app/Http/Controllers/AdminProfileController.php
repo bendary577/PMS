@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\ActivateAdminMail;
+use Illuminate\Support\Facades\Mail;
 
 class AdminProfileController extends Controller
 {
@@ -140,6 +142,22 @@ class AdminProfileController extends Controller
             $user->activated = true;
             $user->save();
             session()->flash('success', 'user account activated successfully');
+            return redirect()->back(); 
+        }else{
+            session()->flash('error', 'user doesn\'t exist');
+            return redirect()->back(); 
+        }
+    }
+
+    public function generateAdminCode($id){
+        if(User::where('id', $id)->exists()) {
+            $user = User::find($id);
+            $security_code = $user->profile->generateCode();
+            $user->profile->security_code =  $security_code;
+            $user->profile->save();
+            $data = ['content' => `Thanks for registration, your code is `.$security_code];
+            Mail::to($user->email)->send(new ActivateAdminMail($data, $user->email));
+            session()->flash('success', 'admin code generated successfully');
             return redirect()->back(); 
         }else{
             session()->flash('error', 'user doesn\'t exist');

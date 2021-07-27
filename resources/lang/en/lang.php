@@ -48,6 +48,7 @@
     'signup.registration' => 'System Registration',
     'signup.name' => 'Complete Name',
     'signup.username' => 'Username',
+    'signup.email' => 'Email',
     'signup.password' => 'Password',
     'signup.confirm_password' => 'Confirm Password',
     'signup.admin' => 'Admin',
@@ -133,6 +134,7 @@
         'admin.update_medical_speciality' => 'Update Medical Speciality',
         'admin.no_medical_speciality' => 'sorry, medical speciality is not available',
         'admin.generate_code' => 'Generate Admins Code',
+        'admin.warning' => 'Note. to register as an admin, you will have to enter security code to activate account',
         //------------------------------------ doctor ------------------------------
         'doctor.add_clinic' => 'Add Clinic',
         'doctor.department' => 'Department',

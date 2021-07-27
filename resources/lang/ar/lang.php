@@ -48,6 +48,7 @@
         'signup.registration' => 'سجل معنا',
         'signup.name' => 'الإسم بالكامل',
         'signup.username' => 'اسم المستخدم',
+        'signup.email' => 'البريد الإلكتروني',
         'signup.password' => 'كلمة السر',
         'signup.confirm_password' => 'تأكيد كلمة السر',
         'signup.admin' => 'مشرف',
@@ -133,6 +134,7 @@
         'admin.update_medical_speciality' => 'تحديث التخصص الطبي',
         'admin.no_medical_speciality' => 'عذرا, هذا التخصص غير موجود',
         'admin.generate_code' => 'إنشاء كود للمشرف',
+        'admin.warning' => 'يرجي العلم أنه للتسجيل كمشرف سيتعين عليك إدخال كود الحماية عند تسجيل الدخول',
         //------------------------------------ doctor ------------------------------
         'doctor.add_clinic' => 'إضافة عيادة',
         'doctor.department' => 'القسم',

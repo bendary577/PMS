@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
+            $table->string('email');
             $table->string('password');
             $table->string('profile_type')->nullable();
             $table->unsignedInteger('profile_id')->nullable();

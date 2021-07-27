@@ -37,7 +37,11 @@
                             <th scope="row">{{ $user->name }}</th>
                             <td>{{ $user->created_at }}</td>
                             <td>
+                            @if($user->getHasAdminProfileAttribute())
+                                <a href="{{route('admin.generate.admin.code', ['id' => $user->id ])}}" class="btn btn-warning">{{ __('lang.admin.generate_code')}}</a>
+                            @else
                                 <a href="{{route('admin.activate.registration.requests', ['id' => $user->id ])}}" class="btn btn-success">{{ __('lang.admin.activate')}}</a>
+                            @endif
                                 <a href="{{route('admin.delete.registration.requests', ['id' => $user->id ])}}" class="btn btn-danger">{{ __('lang.admin.delete_request')}}</a>
                             </td>
                         </tr>

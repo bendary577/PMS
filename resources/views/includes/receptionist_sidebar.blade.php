@@ -39,12 +39,14 @@
                         <li>
                             <a href="{{route('admin.medical.specialities')}}">{{ __('lang.dashboard.medical_specialities')}}</a>
                         </li>
+                        <!--
                         @if(Auth::user()->id === 1)
                         <li>
                             <a href="" id="admin_code_btn" class="btn btn-primary">{{ __('lang.admin.generate_code')}}</a>
                         </li>   
                         <div id="admin_code"></div>  
                         @endif
+                        -->
                     @elseif(Auth::user()->getHasDoctorProfileAttribute())
                         @if(isset(Auth::user()->profile->clinic))
                             <li>
@@ -72,15 +74,5 @@
                 </ul>
         </li>
 </nav>
-            <script>
-                $(document).ready(function(){
-                    $('admin_code_btn').click(function() {
-                        let div = document.getElementById("admin_code");
-                        let admin_code_div = {!! json_encode($admin_code_div, JSON_HEX_TAG) !!};
-                        if(div.childElementCount === 0){
-                            $('#admin_code').append(admin_code_div); 
-                        }
-                    });
-                });
-            </script>
+
     

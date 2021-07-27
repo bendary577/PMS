@@ -14,6 +14,7 @@ class AdminProfile extends Model
     
     protected $fillable = [
       'avatar_path',
+      'security_code',
       'about'
   ];
 
@@ -21,5 +22,9 @@ class AdminProfile extends Model
     { 
       return $this->morphOne('App\Models\User', 'profile');
     }
+
+    public function generateCode(){
+      return rand(pow(10, 8-1), pow(10, 8)-1);
+  }
     
 }

@@ -16,6 +16,7 @@ class CreateAdminProfilesTable extends Migration
         Schema::create('admin_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('avatar_path')->nullable();
+            $table->string('security_code')->nullable();
             $table->string('about')->nullable();
             $table->timestamps();
         });

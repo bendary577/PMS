@@ -38,6 +38,10 @@ Route::get('/register', [App\Http\Controllers\AuthenticationController::class, '
 
 Route::post('/storeUser', [App\Http\Controllers\AuthenticationController::class, 'storeUser'])->name('storeUser');
 
+Route::get('/{email}/request_admin_activation', [App\Http\Controllers\AuthenticationController::class, 'activateAdminAccountView'])->name('request.admin.activation');
+
+Route::post('/{email}/activate_admin', [App\Http\Controllers\AuthenticationController::class, 'activateAdminAccount'])->name('activate.admin');
+
 //--------------------------------- protected routes ---------------------------
 Route::middleware('auth')->group(function () {
 
@@ -67,6 +71,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', [App\Http\Controllers\AdminProfileController::class, 'getRegistrationRequests'])->name('admin.registration.requests');
 
                 Route::get('/{id}/activate', [App\Http\Controllers\AdminProfileController::class, 'activate'])->name('admin.activate.registration.requests');
+
+                Route::get('/{id}/generate_code', [App\Http\Controllers\AdminProfileController::class, 'generateAdminCode'])->name('admin.generate.admin.code');
 
                 Route::get('/{id}/delete', [App\Http\Controllers\AdminProfileController::class, 'delete'])->name('admin.delete.registration.requests');
             });

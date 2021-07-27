@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('content')
-<section class="vh-100">
+<section class="vh-100 my-5">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
 
@@ -35,6 +35,8 @@
                 </ul>
             @endif
 
+        <div class="admin_div" id="admin_div"></div>
+
         <!-- complete name input -->
         <div class="form-outline mb-4">
             <input type="text" id="form3Example3" class="form-control form-control-lg"
@@ -47,6 +49,13 @@
             <input type="text" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter a valid username" name="username"/>
             <label class="form-label" for="form3Example3">{{ __('lang.signup.username')}}</label>
+          </div>
+
+          <!-- Username input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid email" name="email"/>
+            <label class="form-label" for="form3Example3">{{ __('lang.signup.email')}}</label>
           </div>
 
           <!-- Password input -->
@@ -62,8 +71,6 @@
               placeholder="Enter password" name="confirmPassword"/>
             <label class="form-label" for="form3Example4">{{ __('lang.signup.confirm_password')}}</label>
           </div>
-
-          <div class="security_code" id="security_code"></div>
 
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
@@ -101,17 +108,17 @@
       </div>
     </div>
   </div>
-          <script>
+  <script>
                 $(document).ready(function(){
                     $('input[name="account"]').change(function() {
                       if($('#admin').prop('checked')){
-                        let div = document.getElementById("security_code");
-                        let admin_code_input = {!! json_encode($admin_code_input, JSON_HEX_TAG) !!};
+                        let div = document.getElementById("admin_div");
+                        let add_admin_warning = {!! json_encode($add_admin_warning, JSON_HEX_TAG) !!};
                         if(div.childElementCount === 0){
-                            $('.security_code').append(admin_code_input); 
+                            $('#admin_div').append(add_admin_warning); 
                         }
                       }else{
-                        let div = document.getElementById("security_code");
+                        let div = document.getElementById("admin_div");
                         if(div.childElementCount !== 0){
                           while (div.lastElementChild) {
                             div.removeChild(div.lastElementChild);
