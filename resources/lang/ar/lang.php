@@ -286,5 +286,8 @@
         'medical_spec.deleted' => 'تم حذف التخصص الطبي بنجاح',
         'medical_spec.error_deleting' => 'خطأ أثناء حذف التخصص الطبي',
 
+        'rec.table_exam_price' => 'سعر الكشف',
+        'rec.table_follow_price' => 'سعر المتابعة',
+        'egyptian_pound' => 'ج. م :price',
         ]
 ?>

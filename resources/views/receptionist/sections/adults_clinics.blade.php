@@ -5,9 +5,12 @@
             <thead>
                 <tr>
                     <th scope="col">{{ __('lang.rec.table.department')}}</th>
+                    <th scope="col">{{ __('lang.specialization')}}</th>
                     <th scope="col">{{ __('lang.rec.table.doctor_name')}}</th>
                     <th scope="col">{{ __('lang.rec.table.available_from')}}</th>
                     <th scope="col">{{ __('lang.rec.table.available_to')}}</th>
+                    <th scope="col">{{ __('lang.rec.table_exam_price')}}</th>
+                    <th scope="col">{{ __('lang.rec.table_follow_price')}}</th>
                     <th scope="col">{{ __('lang.rec.table.action')}}</th>
                 </tr>
             </thead>
@@ -15,9 +18,12 @@
             @foreach ($clinics as $clinic)
                 <tr>
                     <td>{{ $clinic->department }}</td>
+                    <td>{{ $clinic->doctorProfile->medicalSpeciality->name }}</td>
                     <td>{{ $clinic->doctorProfile->user->name }}</td>
-                    <td>{{ $clinic->available_from }}</td>
-                    <td>{{ $clinic->available_to }}</td>
+                    <td>{{ date("g:i a", strtotime($clinic->available_from)) }}</td>
+                    <td>{{ date("g:i a", strtotime($clinic->available_to)) }}</td>
+                    <td>{{ __('lang.egyptian_pound', ['price' => $clinic->examination_price ]) }}</td>
+                    <td>{{ __('lang.egyptian_pound', ['price' => $clinic->follow_up_price ]) }}</td>
                     <td><button class="btn btn-info">{{ __('lang.rec.new_appointment')}}</button></td>
                 </tr>
             @endforeach

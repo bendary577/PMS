@@ -276,5 +276,8 @@
         'medical_spec.deleted' => 'medical speciality deleted succesfuly',
         'medical_spec.error_deleting' => 'error while deleting medical speciality',
         
+        'rec.table_exam_price' => 'Examination Price',
+        'rec.table_follow_price' => 'Follow Up Price',
+        'egyptian_pound' => ':price E.P',
         ]
 ?>
