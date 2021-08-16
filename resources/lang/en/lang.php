@@ -7,23 +7,23 @@
     'services' => 'Services',
     'about' => 'About',
     //------------------------- welcome section ----------------------------------------
-    'welcome' => 'Welcome to Hospita, your number one solution to manage your medical institution and make your patients happy ! ',
+    'welcome' => 'Welcome to Hospita, your number one solution to manage your medical institution. start now and begin your work on our patient management system! ',
     'getStarted'=> 'Get Started',
     //------------------------------------- about section ----------------------------
     'whatWeDo' => "What We Do",
     'whatWeDo.description' => "hospita is a medical application to make managing patients data more easier",
     'about.makeSimple' => "easier communication",
-    'about.makeSimple.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
+    'about.makeSimple.description' => "communication between doctors and his patients has never been such easy",
     'about.differentLayout' => "let's take care of you",
-    'about.differentLayout.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.uniqueDesign' => "data is safe",
-    'about.uniqueDesign.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
+    'about.differentLayout.description' => "we want you feel comfort and happy using our solution",
+    'about.uniqueDesign' => "one click action",
+    'about.uniqueDesign.description' => "manage all your patients and doctors data with one click",
     'about.advancedOptions' => "easier solution",
-    'about.advancedOptions.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
+    'about.advancedOptions.description' => "now you can integrate with your co-workers to finish your tasks faster",
     'about.testingForPerfiction' => "customized for you",
-    'about.testingForPerfiction.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
-    'about.responsiveness' => "one click action",
-    'about.responsiveness.description' => "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.",
+    'about.testingForPerfiction.description' => "we aim to make our system the best solution for workers in the medical field",
+    'about.responsiveness' => "clear vision",
+    'about.responsiveness.description' => "we seek to make using of our medical system completely secure and easy",
     
     //----------------------------------- contact us section ----------------------------
 

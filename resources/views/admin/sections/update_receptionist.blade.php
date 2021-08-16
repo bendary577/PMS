@@ -20,11 +20,11 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="shift_start">{{ __('lang.admin.shift_starts')}}</label>
-            <input type="time" name="shift_start" required step="3600">
+            <input type="time" name="shift_start">
         </div>
         <div class="form-group">
             <label for="shift_end">{{ __('lang.admin.shift_ends')}}</label>
-            <input type="time" name="shift_end" required step="3600">
+            <input type="time" name="shift_end">
         </div>
         <button type="submit" class="btn btn-primary mt-2">{{ __('lang.submit')}}</button>
     </form>

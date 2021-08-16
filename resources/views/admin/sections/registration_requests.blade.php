@@ -34,7 +34,6 @@
                             @else
                             <td>{{ __('lang.acc.admin')}}</td>
                             @endif
-                            <th scope="row">{{ $user->name }}</th>
                             <td>{{ $user->created_at }}</td>
                             <td>
                             @if($user->getHasAdminProfileAttribute())

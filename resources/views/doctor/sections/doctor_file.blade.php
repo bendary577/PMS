@@ -2,7 +2,7 @@
     @if($doctor)
     <div class="title my-4">
         <h2> {{__('lang.doctor.file_title', ['name' =>  $doctor->user->name])}}</h2>
-        <a href="" class="btn btn-primary">{{__('lang.doctor.print_pdf')}}</a>
+        <!-- <a href="" class="btn btn-primary">{{__('lang.doctor.print_pdf')}}</a> -->
     </div>
     <div class="row">
         <div class="personal_info col-md-6 my-4">

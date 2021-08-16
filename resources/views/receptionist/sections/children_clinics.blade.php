@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th scope="col">{{ __('lang.rec.table.department')}}</th>
-                    <th scope="col">{{ __('lang.specialization')}}</th>
+                    <!-- <th scope="col">{{ __('lang.specialization')}}</th> -->
                     <th scope="col">{{ __('lang.rec.table.doctor_name')}}</th>
                     <th scope="col">{{ __('lang.rec.table.available_from')}}</th>
                     <th scope="col">{{ __('lang.rec.table.available_to')}}</th>
@@ -18,7 +18,6 @@
             @foreach ($clinics as $clinic)
                 <tr>
                     <th scope="row">{{ $clinic->department }}</th>
-                    <td>{{ $clinic->doctorProfile->medicalSpeciality->name }}</td>
                     <td>{{ $clinic->doctorProfile->user->name }}</td>
                     <td>{{ $clinic->available_from }}</td>
                     <td>{{ $clinic->available_to }}</td>

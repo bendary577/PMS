@@ -97,7 +97,7 @@ a:focus {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    font-size: 1.4em;
     display: block;
     list-style: none;
 }
@@ -106,6 +106,7 @@ a:focus {
     color: #7386D5;
     background: #fff;
     list-style: none;
+    text-decoration: none;
 }
 
 #sidebar ul li.active>a,
@@ -126,10 +127,11 @@ a[data-toggle="collapse"] {
     right: 20px;
     transform: translateY(-50%);
 }
+
 */
 
 ul ul a {
-    font-size: 0.9em !important;
+    font-size: 1.1em !important;
     padding-left: 30px !important;
     background: #63cbff;
 }

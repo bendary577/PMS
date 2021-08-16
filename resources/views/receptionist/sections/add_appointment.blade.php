@@ -24,11 +24,11 @@
         </div>
         <div class="form-group">
             <label for="from">{{ __('lang.doctor.table.from')}}</label>
-            <input type="time" name="from" required step="3600">
+            <input type="time" name="from" required>
         </div>
         <div class="form-group">
             <label for="to">{{ __('lang.doctor.table.to')}}</label>
-            <input type="time" name="to" required step="3600">
+            <input type="time" name="to" required>
         </div>
         <div class="form-group">
             <label for="inputState">{{ __('lang.doctor.table.appointment_reason')}}</label>

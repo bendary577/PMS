@@ -35,8 +35,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{$clinic->available_from}}</td>
-                        <td>{{$clinic->available_to}}</td>
+                        <td>{{ date("g:i a", strtotime($clinic->available_from)) }}</td>
+                        <td>{{ date("g:i a", strtotime($clinic->available_to)) }}</td>
                         <td><a href="{{route('doctor.edit.clinic_hours')}}" class="btn btn-info">{{__('lang.doctor.edit_working_hours')}}</a>
                     </tr>
                 </tbody>

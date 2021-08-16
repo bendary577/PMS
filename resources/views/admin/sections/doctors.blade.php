@@ -39,7 +39,7 @@
                             <td>--</td>
                             @endif
                             <td>
-                                <a href="" class="btn btn-info">{{__('lang.admin.check_scheduale')}}</a>
+                                <!-- <a href="" class="btn btn-info">{{__('lang.admin.check_scheduale')}}</a> -->
                                 <a href="{{route('admin.delete.doctor', ['id' => $doctor->user->id ])}}" class="btn btn-danger">{{__('lang.admin.delete')}}</a>
                             </td>
                         </tr>

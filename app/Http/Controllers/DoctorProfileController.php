@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DoctorProfile;
+use App\Models\Clinic;
 use App\Models\MedicalSpeciality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -111,5 +112,13 @@ class DoctorProfileController extends Controller
     {
         $doctors = DoctorProfile::with('medicalSpeciality')->paginate(10);
         return view('receptionist.dashboard.dashboard_doctors', ['doctors' => $doctors]);
+    }
+
+    public function schedules($id)
+    {
+        $doctor = DoctorProfile::where('id', $id)->with('medicalSpeciality')->first();
+        $clinic = Clinic::where('doctor_profile_id', $doctor->id)->with('appointments')->first();
+        var_dump($clinic->id);
+        return view('receptionist.dashboard.dashboard_doctor_schedules', ['doctor' => $doctor, 'clinic' => $clinic]);
     }
 }

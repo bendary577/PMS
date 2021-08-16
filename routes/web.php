@@ -3,6 +3,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,11 @@ use Illuminate\Support\Facades\Route;
 //-------- home ---------------
 
 Route::get('/', function () {
-    return view('home.home');
+    if(Auth::check()){
+        return redirect('/profile');
+    }else{
+        return view('home.home');
+    }
 })->name('home');
 
 //--------- lang ----------------
@@ -186,6 +191,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/children_clinics', [App\Http\Controllers\ClinicController::class, 'getChildrenClinics'] )->name('receptionist.children.clinics');
 
             Route::get('/doctors', [App\Http\Controllers\DoctorProfileController::class, 'indexReceptionist'] )->name('receptionist.doctors');
+
+            Route::get('/{id}/doctor_schedules', [App\Http\Controllers\DoctorProfileController::class, 'schedules'] )->name('receptionist.doctor.schedules');
 
             Route::prefix('patients')->group(function () {
                 Route::get('/', [App\Http\Controllers\PatientController::class, 'indexReceptionist'])->name('receptionist.patients');

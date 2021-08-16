@@ -1,10 +1,14 @@
 <div class="container">
 
-    <div class="go_back mb-4"><a href="{{ url()->previous() }}"><h6 class="text-primary">{{ __('lang.go_back')}}</h6></a></div>
+    <!--
+     <div class="go_back mb-4"><a href="{{ url()->previous() }}">
+        <h6 class="text-primary">{{ __('lang.go_back')}}</h6></a>
+    </div>
+    -->
     @if($patient)
         <div class="title my-4">
             <h2>{{ __('lang.rec.file_title' , ['name' => $patient->name])}}</h2>
-            <a href="" class="btn btn-primary">{{ __('lang.doctor.print_pdf')}}</a>
+            <!-- <a href="" class="btn btn-primary">{{ __('lang.doctor.print_pdf')}}</a> -->
         </div>
         <div class="row">
             <div class="personal_info col-md-6 my-4">

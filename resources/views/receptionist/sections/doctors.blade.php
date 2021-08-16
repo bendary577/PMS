@@ -24,7 +24,7 @@
                     @else
                     <td>{{__('lang.doctor.no_medical_speciality')}}</td>
                     @endif 
-                    <td><a href="" class="btn btn-success">{{__('lang.admin.check_scheduale')}}</a></td>
+                    <td><a href="{{route('receptionist.doctor.schedules', ['id' => $doctor->id ])}}" class="btn btn-success">{{__('lang.admin.check_scheduale')}}</a></td>
                 </tr>
             @endforeach
             </tbody>
