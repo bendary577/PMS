@@ -54,7 +54,7 @@ class AppointmentController extends Controller
         $appointment->patient()->associate($patient)->save();
 
 
-        session()->flash('success', 'appointment was added succesfuly');
+        session()->flash('success', trans('lang.appointment.added'));
         return redirect()->back();  
     }
 

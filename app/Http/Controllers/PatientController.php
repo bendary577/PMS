@@ -73,7 +73,9 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = Patient::find($id);
-        return view('receptionist.dashboard.dashboard_patient_file', ['patient' => $patient]);
+        $medical_specialities = MedicalSpeciality::all();
+        $diagnoses = Diagnose::all();
+        return view('receptionist.dashboard.dashboard_patient_file', ['patient' => $patient, 'diagnoses' => $diagnoses]);
     }
 
 

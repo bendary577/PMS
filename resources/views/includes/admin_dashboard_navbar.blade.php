@@ -10,7 +10,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="{{route('admin.registration.requests')}}">
                                     <div class="text-center">
                                         <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
@@ -18,6 +18,16 @@
                                     </div>
                                 </a>
                             </li>
+                            @if(Auth::user()->profile->is_super == true)
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{route('admin.admins')}}">
+                                    <div class="text-center">
+                                        <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
+                                        <p>{{ __('lang.admin.admins')}}</p>
+                                    </div>
+                                </a>
+                            </li>
+                            @endif
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{route('admin.receptionists')}}">
                                     <div class="text-center">

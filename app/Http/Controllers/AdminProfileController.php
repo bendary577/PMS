@@ -16,7 +16,8 @@ class AdminProfileController extends Controller
 
     public function index()
     {
-        //
+        $admins = User::where('profile_id', '!=', Auth::user()->profile->id)->where('profile_type', '=', 'App\Models\AdminProfile')->where('activated', true)->get();
+        return view('admin.dashboard.dashboard_admins', ['admins'=> $admins]);
     }
 
 
@@ -131,7 +132,12 @@ class AdminProfileController extends Controller
     }
 
     public function getRegistrationRequests(){
-        $users = User::where('activated', false)->where('id', '!=', Auth::user()->id)->get();
+        $users = [];
+        if(Auth::user()->profile->is_super == true){
+            $users = User::where('activated', false)->where('id', '!=', Auth::user()->id)->get();
+        }else{
+            $users = User::where('activated', false)->where('id', '!=', Auth::user()->id)->where('profile_type', '!=', 'App\Models\AdminProfile')->get();
+        }
         return view('admin.dashboard.dashboard_registration_requests', ['users'=> $users]);
     }
 
@@ -206,6 +212,54 @@ class AdminProfileController extends Controller
             session()->flash('error', trans('lang.no_user'));
             return redirect()->back(); 
         }
+    }
+
+    public function handleSuperAdmin($id)
+    {
+        $requests = AdminProfile::where('has_handle_authority_request', true)->count();
+        if($requests < 1){
+            $admin = AdminProfile::where('id', $id)->first();
+            $admin->has_handle_authority_request = true;
+            $admin->save();
+            session()->flash('success', trans('lang.admin.handle_authorities_request_sent'));
+            return redirect()->back();
+        }else{
+            session()->flash('error', trans('lang.admin.exceeded_authorities_request_limit'));
+            return redirect()->back();
+        }
+    }
+
+    public function cancelHandleSuperAdmin($id)
+    {
+        $admin = AdminProfile::where('id', $id)->first();
+        $admin->has_handle_authority_request = false;
+        $admin->save();
+        session()->flash('success', trans('lang.admin.handle_authorities_request_cancelled'));
+        return redirect()->back();
+    }
+
+    
+    public function confirmHandleAuthoritiesRequest()
+    {
+        $admin = Auth::user()->profile;
+        $super_admin = AdminProfile::where('is_super', true)->first();
+        $super_admin->is_super = false;
+        $super_admin->save();
+        $admin->has_handle_authority_request = false;
+        $admin->is_super = true;
+        $admin->save();
+        session()->flash('success',  trans('lang.admin.authorities_request_confirmed'));
+        return redirect()->back();
+    }
+
+    
+    public function cancelHandleAuthoritiesRequest()
+    {
+        $admin = Auth::user()->profile;
+        $admin->has_handle_authority_request = false;
+        $admin->save();
+        session()->flash('success', trans('lang.admin.authorities_request_cancelled'));
+        return redirect()->back();
     }
 
 }

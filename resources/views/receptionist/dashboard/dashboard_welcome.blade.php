@@ -6,7 +6,7 @@
             @include('includes.dashboard_navbar')
             <div class="container">
                 <div class="row">
-                    <h2>Hello, Receptionist Dashboard !</h2>
+                    <h2>{{__('lang.rec.welcome')}}</h2>
                 </div>
             </div>
         </div>

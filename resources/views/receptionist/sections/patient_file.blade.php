@@ -87,21 +87,23 @@
             </div>
         </div>
         <div class="row">
-            @if($patient->diagnoses)
+            @if(count($diagnoses) > 0)
                 <div class="title my-4"><h3>{{ __('lang.rec.diagnoses')}}</h3></div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">{{ __('lang.rec.diagnose_name')}}</th>
-                            <th scope="col">{{ __('lang.rec.dose')}}</th>
+                            <th scope="col">{{ __('lang.doctor.treatment_protocol')}}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($patient->diagnoses as $diagnose)
-                            <tr>
-                                <th scope="row">$diagnose->name</th>
-                                <td>$diagnose->name</td>
-                            </tr>
+                        @foreach($diagnoses as $diagnose)
+                            @foreach($diagnose->patients as $patient)
+                                <tr>
+                                    <th scope="row">{{ $diagnose->name }}</th>
+                                    <td>{{ $patient->pivot->treatment_protocol }}</td>
+                                </tr>
+                            @endforeach
                         @endforeach
                     </tbody>
                 </table>

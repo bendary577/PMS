@@ -82,6 +82,19 @@ Route::middleware('auth')->group(function () {
                 Route::get('/{id}/delete', [App\Http\Controllers\AdminProfileController::class, 'delete'])->name('admin.delete.registration.requests');
             });
 
+            Route::prefix('admins')->group(function () {
+
+                Route::get('/', [App\Http\Controllers\AdminProfileController::class, 'index'])->name('admin.admins');
+
+                Route::get('/{id}/handle_super_admin', [App\Http\Controllers\AdminProfileController::class, 'handleSuperAdmin'])->name('admin.handle.super.admin');
+
+                Route::get('/{id}/cancel_handle_super_admin', [App\Http\Controllers\AdminProfileController::class, 'cancelHandleSuperAdmin'])->name('admin.cancel.handle.super.admin');
+
+                Route::get('/confirm_authorities_request', [App\Http\Controllers\AdminProfileController::class, 'confirmHandleAuthoritiesRequest'])->name('admin.confirm.authorities.request');
+
+                Route::get('/cancel_authorities_request', [App\Http\Controllers\AdminProfileController::class, 'cancelHandleAuthoritiesRequest'])->name('admin.cancel.authorities.request');
+            });
+
             Route::prefix('doctors')->group(function () {
 
                 Route::get('/', [App\Http\Controllers\DoctorProfileController::class, 'index'])->name('admin.doctors');

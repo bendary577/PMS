@@ -6,7 +6,7 @@
             @include('includes.doctor_dashboard_navbar')
             <div class="container">
                 <div class="row">
-                    <h2>Hello, Doctor Dashboard !</h2>
+                    <h2>{{__('lang.doctor.welcome')}}</h2>
                 </div>
             </div>
         </div>

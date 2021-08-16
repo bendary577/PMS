@@ -35,11 +35,11 @@
             </div>
             <div class="form-group">
                 <label for="shift_start">{{__('lang.doctor.available_from')}}</label>
-                <input type="time" name="available_from" required step="3600">
+                <input type="time" name="available_from" required>
             </div>
             <div class="form-group">
                 <label for="shift_end">{{__('lang.doctor.available_to')}}</label>
-                <input type="time" name="available_to" required step="3600">
+                <input type="time" name="available_to" required>
             </div>
             <button type="submit" class="btn btn-primary mt-2">{{__('lang.submit')}}</button>
         </form>

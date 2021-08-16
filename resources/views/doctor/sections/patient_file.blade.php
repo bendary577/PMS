@@ -1,10 +1,15 @@
 <div class="container">
 
-    <div class="go_back mb-4"><a href="{{ url()->previous() }}"><h6 class="text-primary">< go back</h6></a></div>
+<!--
+    <div class="go_back mb-4"><a href="{{ url()->previous() }}">
+        <h6 class="text-primary">< go back</h6></a>
+    </div>
+-->
+
     @if($patient)
         <div class="title my-4">
             <h2>{{ __('lang.rec.file_title' , ['name' => $patient->name])}}</h2>
-            <a href="" class="btn btn-primary">{{ __('lang.doctor.print_pdf')}}</a>
+            <!-- <a href="" class="btn btn-primary">{{ __('lang.doctor.print_pdf')}}</a> -->
         </div>
         <div class="row">
             <div class="personal_info col-md-6 my-4">
@@ -74,35 +79,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            @if($diagnoses)
-                <div class="title my-4"><h3>{{ __('lang.rec.diagnoses')}}</h3></div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th  scope="col">{{ __('lang.rec.diagnose_name')}}</th>
-                            <th scope="col">{{ __('lang.rec.dose')}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($diagnoses as $diagnose)
-                            <tr>
-                                <th scope="row">{{ $diagnose->name }}</th>
-                                <td>{{ $diagnose->protocol }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @else
-            <div class="d-flex col-md-12">
-                <div>
-                    <h4 class="text-success">{{ __('lang.rec.no_diagnose')}}</h4>
-                </div>
-                <div>
-                    <a href="javascript:void(0);" id="add_diagnose" class="ml-2 btn btn-success">{{ __('lang.doctor.add_diagnose')}}</a>
-                </div>
-            </div>
-            <div id="add_diagnose_div" class="col-md-12">
+        
+        <div>
+            <a href="javascript:void(0);" id="add_diagnose" class="ml-2 btn btn-success">{{ __('lang.doctor.add_diagnose')}}</a>
+        </div>
+        <div id="add_diagnose_div" class="col-md-12 my-4">
                     <!--- if diagnose is added successfully ----------->
                     @if (Session::has('success'))
                         <div class="alert alert-success my-2">{{ Session::get('success') }}</div>
@@ -128,6 +109,34 @@
                     });
                 });
             </script>
+
+        <div class="row">
+            @if(count($diagnoses) >0)
+                <div class="title my-5"><h3>{{ __('lang.rec.diagnoses')}}</h3></div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th  scope="col">{{ __('lang.rec.diagnose_name')}}</th>
+                            <th scope="col">{{ __('lang.doctor.treatment_protocol')}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($diagnoses as $diagnose)
+                            @foreach($diagnose->patients as $patient)
+                                <tr>
+                                    <th scope="row">{{ $diagnose->name }}</th>
+                                    <td>{{ $patient->pivot->treatment_protocol }}</td>
+                                </tr>
+                            @endforeach
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+            <div class="d-flex col-md-12">
+                <div>
+                    <h4 class="text-success">{{ __('lang.rec.no_diagnose')}}</h4>
+                </div>
+            </div>
             @endif
         </div>
         <!--

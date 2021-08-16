@@ -137,6 +137,21 @@
         'admin.no_medical_speciality' => 'عذرا, هذا التخصص غير موجود',
         'admin.generate_code' => 'إنشاء كود للمشرف',
         'admin.warning' => 'يرجي العلم أنه للتسجيل كمشرف سيتعين عليك إدخال كود الحماية عند تسجيل الدخول',
+        'admin.admins' => 'المشرفين',
+        'admin.handle_super_admin' => 'نقل صلاحيات المشرف الرئيسي',
+        'admin.no_admins' => 'معذرة, لا يوجد مشرفين مسجلين حالياَ',
+        'admin.handle_authorities_modal_title' => 'رسالة تأكيد',
+        'admin.handle_authorities_modal_message' => 'هل تريد نقل صلاحيات المشرف الرئيسي للمشرف الذي اخترته ؟',
+        'admin.confirm' => 'تأكيد',
+        'admin.cancel' => 'إلغاء',
+        'admin.handle_authorities_request_sent' => 'تم إرسال طلب نقل صلاحيات المشرف الرئيسي بنجاح',
+        'admin.handle_authorities_request_cancelled' => 'تم إلغاء طلب نقل صلاحيات المشرف الرئيسي',
+        'admin.request_sent' => 'تم إرسال الطلب',
+        'admin.welcome' => 'أهلا بك في لوحة تحكم المشرف',
+        'admin.recieved_authorities_request' => 'لقد تلقيت طلب نقل صلاحيات المشرف الرئيسي إليك',
+        'admin.authorities_request_confirmed' => 'تم تأكيد قبول طلب نقل الصلاحيات',
+        'admin.authorities_request_cancelled' => 'تم رفض طلب نقل الصلاحيات',
+        'admin.exceeded_authorities_request_limit' => 'عذراَ, يمكنك إرسال الطلب لحساب مشرف واحد فقط',
         //------------------------------------ doctor ------------------------------
         'doctor.add_clinic' => 'إضافة عيادة',
         'doctor.department' => 'القسم',
@@ -175,6 +190,8 @@
         'doctor.no_doctor' => 'عذرا, معلومات الطبيب غير متوفرة حالياَ',
         'doctor.edit_clinic' => 'تحديث العيادة',
         'doctor.add_diagnose' => 'إضافة تشخيص جديد',
+        'doctor.welcome' => 'أهلا بك في لوحة تحكم الأطباء',
+        'doctor.treatment_protocol' => 'البروتوكول الطبي',
     //-------------------------------------- receptionist --------------------------
     'rec.add_patient' => 'إضافة سجل مريض',
     'rec.search_patient' => 'بحث عن مريض',
@@ -222,9 +239,9 @@
     'rec.diagnose_name' => 'التشخيص',
     'rec.dose' => 'عدد الجرعات',
     'rec.no_diagnose' => 'لم يتم إضافة تشخيص للمريض حتي الاَن',
-
-
-
+    'rec.welcome' => 'أهلا بك في لوحة تحكم موظفي الاستقبال',
+    //------------------------------------------ appointments ----------------------------------------
+    'appointment.added' => 'تم إضافة الموعد بنجاح',
 
 
 

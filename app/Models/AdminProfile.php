@@ -15,6 +15,8 @@ class AdminProfile extends Model
     protected $fillable = [
       'avatar_path',
       'security_code',
+      'is_super',
+      'has_handle_authority_request',
       'about'
   ];
 

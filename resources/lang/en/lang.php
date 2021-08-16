@@ -136,6 +136,21 @@
         'admin.no_medical_speciality' => 'sorry, medical speciality is not available',
         'admin.generate_code' => 'Generate Admins Code',
         'admin.warning' => 'Note. to register as an admin, you will have to enter security code to activate account',
+        'admin.admins' => 'Admins',
+        'admin.handle_super_admin' => 'handle super admin authorities',
+        'admin.no_admins' => 'sorry, no admins are registered right now',
+        'admin.handle_authorities_modal_title' => 'Confirmation Message',
+        'admin.handle_authorities_modal_message' => 'are you sure you want to handle your authorities to speciied admin account ?',
+        'admin.confirm' => 'confirm',
+        'admin.cancel' => 'cancel',
+        'admin.handle_authorities_request_sent' => 'handle authority request was sent successfully',
+        'admin.handle_authorities_request_cancelled' => 'handle authority request cancelled successfully',
+        'admin.request_sent' => 'request sent',
+        'admin.welcome' => 'Hello, admin dashboard',
+        'admin.recieved_authorities_request' => 'you have recieved handling super admin authorities request',
+        'admin.authorities_request_confirmed' => 'admin authorities request handling confirmed',
+        'admin.authorities_request_cancelled' => 'admin authorities request handling cancelled',
+        'admin.exceeded_authorities_request_limit' => 'sorry, you can only send the request to one admin account',
         //------------------------------------ doctor ------------------------------
         'doctor.add_clinic' => 'Add Clinic',
         'doctor.department' => 'Department',
@@ -175,6 +190,8 @@
         'doctor.no_doctor' => 'sorry, doctor is not available',
         'doctor.edit_clinic' => 'Edit Clinic',
         'doctor.add_diagnose' => 'Add New Diagnose',
+        'doctor.welcome' => 'Hello, Doctors Dashboard !',
+        'doctor.treatment_protocol' => 'treatment protocol',
     //-------------------------------------- receptionist --------------------------
     'rec.add_patient' => 'Add New Patient',
     'rec.search_patient' => 'Search For a Patient',
@@ -222,7 +239,12 @@
     'rec.diagnose_name' => 'diagnose_name',
     'rec.dose' => 'Dose',
     'rec.no_diagnose' => 'patient has no diagnoses available',
-    
+    'rec.welcome' => 'Hello, Receptionist Dashboard !',
+    //------------------------------------------ appointments ----------------------------------------
+    'appointment.added' => 'appointment was added succesfuly',
+
+
+
         'download' => 'Download',
         'upload' => 'Upload File',
         'go_back' => '< go back',

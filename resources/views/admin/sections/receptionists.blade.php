@@ -29,12 +29,12 @@
                         <tr>
                             <th scope="row">{{ $receptionist->user->name }}</th>
                             @if(isset($receptionist->shift_start))
-                            <td>{{ $receptionist->shift_start }}</td>
+                            <td>{{ date("g:i a", strtotime($receptionist->shift_start)) }}</td>
                             @else
                             <td>--</td>
                             @endif
                             @if(isset($receptionist->shift_end))
-                            <td>{{ $receptionist->shift_end }}</td>
+                            <td>{{ date("g:i a", strtotime($receptionist->shift_end)) }}</td>
                             @else
                             <td>--</td>
                             @endif

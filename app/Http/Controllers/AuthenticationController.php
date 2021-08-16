@@ -81,7 +81,15 @@ class AuthenticationController extends Controller
                 $user->attachRole($role);  
             }
         }else{
+            $admins = AdminProfile::all()->count();
             $adminProfile = new AdminProfile();
+            $adminProfile->has_handle_authority_request = false;
+            if($admins > 0){
+                $adminProfile->is_super = false;
+            }else{
+                $user->activated = true;
+                $adminProfile->is_super = true;
+            }
             $adminProfile->save();
             $adminProfile->user()->save($user);
             if(Role::where('name', 'admin')->exists()){
@@ -122,7 +130,7 @@ class AuthenticationController extends Controller
 
             $user = User::where('username', $request['username'])->first();
 
-            if($user->activated == false && $user->getHasAdminProfileAttribute() && $user->profile->id !== 1){
+            if($user->activated == false && $user->getHasAdminProfileAttribute() && $user->profile->is_super == false){
                 //return view('auth.admin_activate_account', ['email' => $user->email]);
                 //return redirect()->route('request.admin.activation', ['email' => $user->email]);
                 //var_dump(112);
@@ -130,7 +138,7 @@ class AuthenticationController extends Controller
                 //Redirect::route('request.admin.activation',['email' => $user->email]);
             }
 
-            if($user->activated == false && !($user->getHasAdminProfileAttribute() && $user->profile->id === 1)){
+            if($user->activated == false && !($user->getHasAdminProfileAttribute() && $user->profile->is_super == true)){
                 session()->flash('error', trans('lang.acc_not_activated'));
                 return redirect()->back();
             }
