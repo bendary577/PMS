@@ -26,12 +26,14 @@ class AdminProfileController extends Controller
         //
     }
 
+    //admin account can fetch receptionists to a view and edit them
     public function editReceptionist($id)
     {
         $receptionist = ReceptionistProfile::find($id);
         return view('admin.dashboard.dashboard_update_receptionist', [ 'receptionist_id' => $receptionist->id, 'receptionist_name' =>$receptionist->user->name]);
     }
 
+    //admin account can update info of a single receptionist
     public function updateReceptionist(Request $request, $id)
     {
         $validator = Validator::make($request->all(),
@@ -76,12 +78,14 @@ class AdminProfileController extends Controller
         //
     }
 
+    //admin account can return a view to edit his own profile
     public function edit()
     {
         return view('profile.dashboard.dashboard_admin_edit_profile');
     }
 
 
+    //admin account can update his profile info
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(),
@@ -126,11 +130,7 @@ class AdminProfileController extends Controller
         //
     }
 
-    public function welcome()
-    {
-        return view('admin.dashboard.dashboard_welcome');
-    }
-
+    //admin account can review all users registration requests in the system
     public function getRegistrationRequests(){
         $users = [];
         if(Auth::user()->profile->is_super == true){
@@ -141,6 +141,7 @@ class AdminProfileController extends Controller
         return view('admin.dashboard.dashboard_registration_requests', ['users'=> $users]);
     }
 
+    //admin account can activate other users accounts
     public function activate($id)
     {
         if(User::where('id', $id)->exists()) {
@@ -155,6 +156,7 @@ class AdminProfileController extends Controller
         }
     }
 
+    //admin account can generate activation code for other admins
     public function generateAdminCode($id){
         if(User::where('id', $id)->exists()) {
             $user = User::find($id);
@@ -171,6 +173,7 @@ class AdminProfileController extends Controller
         }
     }
 
+    //admin account can block other users
     public function block($id)
     {
         if(User::where('id', $id)->exists()) {
@@ -185,6 +188,7 @@ class AdminProfileController extends Controller
         }
     }
 
+    //admin account can unblock other users
     public function unblock($id)
     {
         if(User::where('id', $id)->exists()) {
@@ -199,6 +203,7 @@ class AdminProfileController extends Controller
         }
     }
 
+    //admin account can delete a certain user account
     public function delete($id)
     {
         if(User::where('id', $id)->exists()) {
@@ -214,6 +219,7 @@ class AdminProfileController extends Controller
         }
     }
 
+    //super admin account can send request to handle super admin authorities to another admin in the system
     public function handleSuperAdmin($id)
     {
         $requests = AdminProfile::where('has_handle_authority_request', true)->count();
@@ -229,6 +235,7 @@ class AdminProfileController extends Controller
         }
     }
 
+    //super admin account can cancel super admin handle authorities request
     public function cancelHandleSuperAdmin($id)
     {
         $admin = AdminProfile::where('id', $id)->first();
@@ -238,7 +245,7 @@ class AdminProfileController extends Controller
         return redirect()->back();
     }
 
-    
+    //admin account can accept the sent request to be a super admin
     public function confirmHandleAuthoritiesRequest()
     {
         $admin = Auth::user()->profile;
@@ -252,7 +259,7 @@ class AdminProfileController extends Controller
         return redirect()->back();
     }
 
-    
+    //admin account can refuse super admin handle authorities request
     public function cancelHandleAuthoritiesRequest()
     {
         $admin = Auth::user()->profile;
