@@ -10,48 +10,60 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('admin.registration.requests')}}">
-                                    <div class="text-center">
-                                        <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>{{ __('lang.dashboard.registration_requests')}}</p>
-                                    </div>
-                                </a>
-                            </li>
+                            <div class="card rounded shadow mx-1">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('admin.registration.requests')}}">
+                                        <div class="text-center">
+                                            <img src="{{url('/images/dashboard/registration_requests.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
+                                            <p>{{ __('lang.dashboard.registration_requests')}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
                             @if(Auth::user()->profile->is_super == true)
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('admin.admins')}}">
-                                    <div class="text-center">
-                                        <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>{{ __('lang.admin.admins')}}</p>
-                                    </div>
-                                </a>
-                            </li>
+                            <div class="card shadow rounded mx-1">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('admin.admins')}}">
+                                        <div class="text-center">
+                                            <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
+                                            <p>{{ __('lang.admin.admins')}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
                             @endif
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('admin.receptionists')}}">
-                                    <div class="text-center">
-                                        <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>{{ __('lang.dashboard.receptionists')}}</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('admin.doctors')}}">
-                                    <div class="text-center">
-                                        <img src="{{url('/images/dashboard/clinics.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>{{ __('lang.dashboard.doctors')}}</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('admin.medical.specialities')}}">
-                                    <div class="text-center">
-                                        <img src="{{url('/images/dashboard/patients.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
-                                        <p>{{ __('lang.dashboard.medical_specialities')}}</p>
-                                    </div>
-                                </a>
-                            </li>
+                            <div class="card shadow rounded mx-1">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('admin.receptionists')}}">
+                                        <div class="text-center">
+                                            <img src="{{url('/images/dashboard/receptionists.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
+                                            <p>{{ __('lang.dashboard.receptionists')}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+
+                            <div class="card shadow rounded mx-1">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('admin.doctors')}}">
+                                        <div class="text-center">
+                                            <img src="{{url('/images/dashboard/doctors.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
+                                            <p>{{ __('lang.dashboard.doctors')}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+
+                            <div class="card shadow rounded mx-1">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('admin.medical.specialities')}}">
+                                        <div class="text-center">
+                                            <img src="{{url('/images/dashboard/medical_specialities.png')}}" class="mt-2" width="20" height="20" alt="welcome" />
+                                            <p>{{ __('lang.dashboard.medical_specialities')}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>

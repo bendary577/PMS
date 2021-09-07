@@ -46,7 +46,8 @@ a:hover {
 
 .nav-link:hover {
     height: 100%;
-    background-color: paleturquoise
+    background-color: #b6cadb;
+    color : white
 }
 
 
