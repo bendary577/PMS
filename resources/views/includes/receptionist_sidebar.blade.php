@@ -15,18 +15,18 @@
         
         <!-------------------------------------------------------------- Profile ---------------------------------------->
         <li>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-dark">{{ __('lang.dashboard.profile')}}</a>
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">{{ __('lang.dashboard.profile')}}</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="{{route('profile')}}" class="text-dark">{{ __('lang.dashboard.my_profile')}}</a>
+                    <a href="{{route('profile')}}" class="text-white">{{ __('lang.dashboard.my_profile')}}</a>
                 </li>
                 <li>
                     @if(Auth::user()->getHasAdminProfileAttribute())
-                        <a href="{{route('admin.edit.profile')}}" class="text-dark">{{ __('lang.dashboard.edit_profile')}}</a>
+                        <a href="{{route('admin.edit.profile')}}" class="text-white">{{ __('lang.dashboard.edit_profile')}}</a>
                     @elseif(Auth::user()->getHasDoctorProfileAttribute())
-                        <a href="{{route('doctor.edit.profile')}}" class="text-dark">{{ __('lang.dashboard.edit_profile')}}</a>
+                        <a href="{{route('doctor.edit.profile')}}" class="text-white">{{ __('lang.dashboard.edit_profile')}}</a>
                     @else
-                        <a href="{{route('receptionist.edit.profile')}}" class="text-dark">{{ __('lang.dashboard.edit_profile')}}</a>
+                        <a href="{{route('receptionist.edit.profile')}}" class="text-dawhiterk">{{ __('lang.dashboard.edit_profile')}}</a>
                     @endif
                 </li>
             </ul>
@@ -34,25 +34,25 @@
 
         <!-------------------------------------------------------------- Actions ---------------------------------------->
         <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-dark">{{ __('lang.dashboard.actions')}}</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+            <a href="#pageSubmenu" id="pageSubmenu" data-toggle="collapse" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle text-white">{{ __('lang.dashboard.actions')}}</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu" aria-labelledby="pageSubmenu">
                     @if(Auth::user()->getHasAdminProfileAttribute())
                         <li>
-                            <a href="{{route('admin.registration.requests')}}" class="text-dark">{{ __('lang.dashboard.registration_requests')}}</a>
+                            <a href="{{route('admin.registration.requests')}}" class="text-white">{{ __('lang.dashboard.registration_requests')}}</a>
                         </li>
                         <li>
-                            <a href="{{route('admin.receptionists')}}" class="text-dark">{{ __('lang.dashboard.receptionists')}}</a>
+                            <a href="{{route('admin.receptionists')}}" class="text-white">{{ __('lang.dashboard.receptionists')}}</a>
                         </li>
                         <li>
-                            <a href="{{route('admin.doctors')}}" class="text-dark">{{ __('lang.dashboard.doctors')}}</a>
+                            <a href="{{route('admin.doctors')}}" class="text-white">{{ __('lang.dashboard.doctors')}}</a>
                         </li>
                         <li>
-                            <a href="{{route('admin.medical.specialities')}}" class="text-dark">{{ __('lang.dashboard.medical_specialities')}}</a>
+                            <a href="{{route('admin.medical.specialities')}}" class="text-white">{{ __('lang.dashboard.medical_specialities')}}</a>
                         </li>
                     @elseif(Auth::user()->getHasDoctorProfileAttribute())
                         @if(isset(Auth::user()->profile->clinic))
                             <li>
-                                <a href="{{route('doctor.clinic')}}" class="text-dark">{{ __('lang.dashboard.clinic')}}</a>
+                                <a href="{{route('doctor.clinic')}}" class="text-white">{{ __('lang.dashboard.clinic')}}</a>
                             </li>
                         @else
                             <li>
@@ -64,13 +64,13 @@
                         </li>
                     @else
                         <li>
-                            <a href="{{route('receptionist.patients')}}" class="text-dark">{{ __('lang.dashboard.patients')}}</a>
+                            <a href="{{route('receptionist.patients')}}" class="text-white">{{ __('lang.dashboard.patients')}}</a>
                         </li>
                         <li>
-                            <a href="{{route('receptionist.clinics')}}" class="text-dark">{{ __('lang.dashboard.clinics')}}</a>
+                            <a href="{{route('receptionist.clinics')}}" class="text-white">{{ __('lang.dashboard.clinics')}}</a>
                         </li>
                         <li>
-                            <a href="{{route('receptionist.doctors')}}" class="text-dark">{{ __('lang.dashboard.doctors')}}</a>
+                            <a href="{{route('receptionist.doctors')}}" class="text-white">{{ __('lang.dashboard.doctors')}}</a>
                         </li>
                     @endif
                 </ul>
