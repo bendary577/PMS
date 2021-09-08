@@ -15,10 +15,17 @@
         
         <!-------------------------------------------------------------- Profile ---------------------------------------->
         <li>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">{{ __('lang.dashboard.profile')}}</a>
+            <div class="d-flex">
+                <div class="">
+                    <img src="{{url('/images/dashboard/profile.png')}}" class="mt-3 mx-2" width="25" height="25" alt="welcome" />
+                </div>
+                <div class="">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">{{ __('lang.dashboard.profile')}}</a>
+                </div>
+            </div>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="{{route('profile')}}" class="text-white">{{ __('lang.dashboard.my_profile')}}</a>
+                    <a href="{{route('profile')}}" class="text-white">{{ __('lang.dashboard.my_profile')}}</a> 
                 </li>
                 <li>
                     @if(Auth::user()->getHasAdminProfileAttribute())
@@ -34,7 +41,15 @@
 
         <!-------------------------------------------------------------- Actions ---------------------------------------->
         <li>
-            <a href="#pageSubmenu" id="pageSubmenu" data-toggle="collapse" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle text-white">{{ __('lang.dashboard.actions')}}</a>
+                <div class="d-flex">
+                    <div class="">
+                        <img src="{{url('/images/dashboard/actions.png')}}" class="mt-3 mx-2" width="25" height="25" alt="welcome" />
+                    </div>
+                    <div class="">
+                        <a href="#pageSubmenu" id="pageSubmenu" data-toggle="collapse" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle text-white">{{ __('lang.dashboard.actions')}}</a>
+                    </div>
+                </div>
+            
                 <ul class="collapse list-unstyled" id="pageSubmenu" aria-labelledby="pageSubmenu">
                     @if(Auth::user()->getHasAdminProfileAttribute())
                         <li>

@@ -16,8 +16,8 @@
                 <tr>
                     <td>{{ $clinic->department }}</td>
                     <td>{{ $clinic->doctorProfile->user->name }}</td>
-                    <td>{{ $clinic->available_from }}</td>
-                    <td>{{ $clinic->available_to }}</td>
+                    <td>{{ date("g:i a", strtotime($clinic->available_from)) }}</td>
+                    <td>{{ date("g:i a", strtotime($clinic->available_to)) }}</td>
                     <td><a href="{{route('receptionist.patient.add.appointment', ['clinicId' => $clinic->id, 'id' => $id  ])}}" class="btn btn-info">{{ __('lang.rec.new_appointment')}}</a></td>
                 </tr>
             @endforeach

@@ -20,6 +20,7 @@ a:hover {
     color: black;
     text-decoration: none;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .upper_navbar {
@@ -47,7 +48,8 @@ a:hover {
 .nav-link:hover {
     height: 100%;
     background-color: #b6cadb;
-    color : white
+    color : white;
+    cursor: pointer;
 }
 
 
@@ -66,7 +68,7 @@ a:hover {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #464747;
+    background: #2960d7;
     /*#7386D5*/
     color: #fff;
     transition: all 0.3s;
@@ -82,13 +84,13 @@ a:hover {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #464747;
+    background: #2960d7;
     /*#6d7fcc*/
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #464747;
+    border-bottom: 1px solid #2960d7;
 }
 
 #sidebar ul p {
@@ -105,36 +107,26 @@ a:hover {
 
 #sidebar ul li a:hover {
     color : black;
-    background: #969999;
+    background: #2960d7;
     list-style: none;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #464747;
+    background: #2960d7;
 }
 
 a[data-toggle="collapse"] {
     position: relative;
 }
 
-/*
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-*/
-
 ul ul a {
     font-size: 1.1em !important;
     padding-left: 30px !important;
-    background: #464747;
+    background: #2960d7;
 }
 
 ul.CTAs {
@@ -159,6 +151,7 @@ a.article:hover {
     color : black;
     background: #031a7c !important;
     color: #fff !important;
+    cursor: pointer;
 }
 
 

@@ -1,4 +1,4 @@
-<nav class="upper_navbar navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="upper_navbar navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fa fa-align-left"></i>
@@ -10,7 +10,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <div class="card rounded shadow mx-1">
+                            <div class="card shadow mx-1" style="border-radius:20px">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{route('admin.registration.requests')}}">
                                         <div class="text-center">
@@ -21,7 +21,7 @@
                                 </li>
                             </div>
                             @if(Auth::user()->profile->is_super == true)
-                            <div class="card shadow rounded mx-1">
+                            <div class="card shadow mx-1" style="border-radius:20px">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{route('admin.admins')}}">
                                         <div class="text-center">
@@ -32,7 +32,7 @@
                                 </li>
                             </div>
                             @endif
-                            <div class="card shadow rounded mx-1">
+                            <div class="card shadow mx-1" style="border-radius:20px">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{route('admin.receptionists')}}">
                                         <div class="text-center">
@@ -43,7 +43,7 @@
                                 </li>
                             </div>
 
-                            <div class="card shadow rounded mx-1">
+                            <div class="card shadow mx-1" style="border-radius:20px">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{route('admin.doctors')}}">
                                         <div class="text-center">
@@ -54,7 +54,7 @@
                                 </li>
                             </div>
 
-                            <div class="card shadow rounded mx-1">
+                            <div class="card shadow mx-1" style="border-radius:20px">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{route('admin.medical.specialities')}}">
                                         <div class="text-center">

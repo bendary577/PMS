@@ -25,71 +25,16 @@
                 <!--------------------- title ------------------------>
                 <h2> {{ __('lang.admin.welcome')}}</h2>
 
-                
                 <!------------------- badges --------------------------->
-                <div class="row my-4">
-                    <div class="col-md-3">
-                        <a class="badge badge-pill badge-light shadow d-flex justify-content-center" style="width:200px;height:50px">
-                            <h3>Light</h3>
-                        </a>
-                    </div>
-
-                    <div class="col-md-3">
-                        <a class="badge badge-pill badge-light shadow d-flex justify-content-center" style="width:200px;height:50px">
-                            <h3>Light</h3>
-                        </a>
-                    </div>
-
-                    <div class="col-md-3">
-                        <a class="badge badge-pill badge-light shadow d-flex justify-content-center" style="width:200px;height:50px">
-                            <h3>Light</h3>
-                        </a>
-                    </div>
-
-                    <div class="col-md-3">
-                        <a class="badge badge-pill badge-light shadow d-flex justify-content-center" style="width:200px;height:50px">
-                            <h3>Light</h3>
-                        </a>
-                    </div>
-                </div>
+                @include('admin.sections.welcome_dashboard.upper_badges')
 
                 <!------------------- counts board --------------------------->
-                <div class="row my-4">
-                    <div class="col-md-8">
-                    @include('admin.sections.welcome_dashboard.counts_section')
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow" style="height:100%">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <div class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                @include('admin.sections.welcome_dashboard.counts_section')
 
                 <!------------------- charts board --------------------------->
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <div>{!! $receptionistsChart->container() !!} </div>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <div>{!! $usersChart->container() !!}</div>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
+                @include('admin.sections.welcome_dashboard.charts')
+            </div>
 </div>
 
 
