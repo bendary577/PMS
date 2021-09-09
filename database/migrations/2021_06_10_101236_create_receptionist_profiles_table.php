@@ -16,8 +16,6 @@ class CreateReceptionistProfilesTable extends Migration
         Schema::create('receptionist_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('phone')->nullable();
-            $table->string('avatar_path')->nullable();
-            $table->string('about')->nullable();
             $table->time('shift_start')->nullable();
             $table->time('shift_end')->nullable();
             $table->timestamps();

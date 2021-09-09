@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('profile_type')->nullable();
+            $table->string('about')->nullable();
+            $table->string('avatar_path')->nullable();
             $table->unsignedInteger('profile_id')->nullable();
             $table->boolean('activated');
             $table->boolean('blocked');

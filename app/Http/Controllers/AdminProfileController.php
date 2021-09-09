@@ -107,17 +107,18 @@ class AdminProfileController extends Controller
         }
 
         if($request['about']){
-            $admin->profile->about = $request['about'];
+            $admin->user->about = $request['about'];
         }
 
         if($request['image']){
             $imageName = $request->image->getClientOriginalName();
             $path = '/avatars/'.'/'.$admin->id.'/';
             $request->image->move(public_path().$path, $imageName);
-            $admin->profile->avatar_path = $path.$imageName;
+            $admin->user->avatar_path = $path.$imageName;
         }
 
         $admin->save();
+        $admin->user->save();
         $admin->profile->save();
 
         session()->flash('success', trans('lang.acc.update_success'));

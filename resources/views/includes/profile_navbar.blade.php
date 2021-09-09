@@ -49,9 +49,9 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
 
-      @if(isset(Auth::user()->profile->avatar_path))
+      @if(isset(Auth::user()->avatar_path))
         <img
-          src="{{url(Auth::user()->profile->avatar_path)}}"
+          src="{{url(Auth::user()->avatar_path)}}"
           class="rounded-circle"
           height="30"
           width="30"

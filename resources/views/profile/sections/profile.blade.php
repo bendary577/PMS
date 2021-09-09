@@ -31,8 +31,8 @@
                         @endif
                     @endif
                     <!------------------- about description ------------------------>
-                    @if(isset(Auth::user()->profile->about))
-                    <p>{{ Auth::user()->profile->about }}</p>
+                    @if(isset(Auth::user()->about))
+                    <p>{{ Auth::user()->about }}</p>
                     @else
                     <p>{{ __('lang.acc.no_about')}}</p>
                     @endif

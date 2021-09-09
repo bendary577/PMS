@@ -70,7 +70,7 @@ class ReceptionistProfileController extends Controller
             $imageName = $request->image->getClientOriginalName();
             $path = '/avatars/'.'/'.$receptionist->id.'/';
             $request->image->move(public_path().$path, $imageName);
-            $profile->avatar_path = $path.$imageName;
+            $profile->user->avatar_path = $path.$imageName;
         }
 
         if($request['phone']){
@@ -86,10 +86,11 @@ class ReceptionistProfileController extends Controller
         }
 
         if($request['about']){
-            $profile->about = $request['about'];
+            $profile->user->about = $request['about'];
         }
 
         $receptionist->save();
+        $receptionist->user->save();
         $profile->save();
 
         session()->flash('success', trans('lang.rec.profile_updated'));

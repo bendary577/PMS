@@ -4,21 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoctorProfilesTable extends Migration
+class CreatePatientsMedicalSpecialitiesTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function up()
     {
-        Schema::create('doctor_profiles', function (Blueprint $table) {
+        Schema::create('patients_medical_specialities', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('medical_speciality_id')->nullable();
-            $table->string('phone')->nullable();
-            $table->timestamps();
+            $table->unsignedBigInteger('patient_id')->nullable();
             $table->foreign('medical_speciality_id')->references('id')->on('medical_specialities')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateDoctorProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_profiles');
+        Schema::dropIfExists('patients_medical_specialities');
     }
 }

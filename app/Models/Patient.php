@@ -27,13 +27,15 @@ class Patient extends Model
     }
 
 
-    public function generateCode(){
+    public function generateCode()
+    {
         return rand(pow(10, 8-1), pow(10, 8)-1);
     }
 
-    public function diagnoses()
+    public function medicalSpecialities()
     {
-        return $this->belongsToMany(Diagnose::class, 'diagnose_patient')->withPivot('description', 'treatment_protocol');;
+        return $this->belongsToMany(MedicalSpeciality::class, 'patients_medical_specialities')->using(PatientMedicalSpeciality::class);
+        /* ->withPivot('description', 'treatment_protocol'); */ 
     }
 
 }

@@ -13,8 +13,6 @@ class DoctorProfile extends Model
 
     protected $fillable = [
         'phone',
-        'avatar_path',
-        'about'
     ];
 
     

@@ -64,7 +64,7 @@ class DoctorProfileController extends Controller
             $imageName = $request->image->getClientOriginalName();
             $path = '/avatars/'.'/'.$doctor->id.'/';
             $request->image->move(public_path().$path, $imageName);
-            $doctor->profile->avatar_path = $path.$imageName;
+            $doctor->user->avatar_path = $path.$imageName;
         }
 
         if($request['phone']){
@@ -72,7 +72,7 @@ class DoctorProfileController extends Controller
         }
 
         if($request['about']){
-            $doctor->profile->about = $request['about'];
+            $doctor->user->about = $request['about'];
         }
 
         if($request['specialization']){
@@ -81,6 +81,7 @@ class DoctorProfileController extends Controller
         }
 
         $doctor->save();
+        $doctor->user->save();
         $doctor->profile->save();
 
         session()->flash('success', trans('lang.doc.profile_updated'));

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminProfilesTable extends Migration
+class CreatePerscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateAdminProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_profiles', function (Blueprint $table) {
+        Schema::create('perscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('security_code')->nullable();
-            $table->boolean('is_super')->nullable();
-            $table->boolean('has_handle_authority_request')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateAdminProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_profiles');
+        Schema::dropIfExists('perscriptions');
     }
 }

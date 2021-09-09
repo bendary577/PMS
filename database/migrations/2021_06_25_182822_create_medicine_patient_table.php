@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMedicinePatientTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('medicine_patient', function (Blueprint $table) {
@@ -24,11 +20,7 @@ class CreateMedicinePatientTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('medicine_patient');
